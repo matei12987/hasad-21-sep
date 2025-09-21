@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import logical properties utilities */
+@import './styles/logical-properties.css';
+
+/* Layout stabilization for RTL/LTR switching */
+* {
+  /* Use logical properties for consistent RTL/LTR behavior */
+  box-sizing: border-box;
+}
+
+/* Prevent layout shifts during language switching */
+html, body, #root {
+  contain: layout;
+  transform: translateZ(0);
+}
+
+/* Ensure consistent text alignment */
+[dir='rtl'] {
+  text-align: start;
+}
+
+[dir='ltr'] {
+  text-align: start;
+}
+
+/* Base RTL/LTR support */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+}
+
+/* Ensure proper text alignment in both directions */
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+/* Enhanced checkbox styling for better visual feedback */
+input[type="checkbox"]:checked {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+}
+
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+input[type="checkbox"]:hover:not(:checked) {
+  border-color: #60a5fa;
+  background-color: #eff6ff;
+}
+
+/* Remove default underline from anchor links acting as buttons */
+a.no-underline {
+  text-decoration: none;
+}
+
+a.no-underline:hover {
+  text-decoration: underline;
+}
+
+/* Enhanced link styling for better interactivity */
+.auth-link {
+  @apply text-blue-600 hover:text-blue-700 font-medium transition-all duration-200 hover:underline cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md px-1 py-0.5 inline-block active:text-blue-800;
+}
+
+.auth-link:active {
+  transform: translateY(1px);
+}
+
+/* Profile page RTL enhancements */
+.profile-menu-item {
+  text-align: start;
+}
+
+[dir="rtl"] .profile-menu-item {
+  text-align: start;
+}
+
+[dir="ltr"] .profile-menu-item {
+  text-align: start;
+}
+
+/* Bidi isolation for mixed content */
+.bidi-isolate {
+  unicode-bidi: isolate;
+}
+
+.bidi-isolate-override {
+  unicode-bidi: isolate-override;
+}
+
+/* Profile stats grid RTL support */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+[dir="rtl"] .profile-stats-grid {
+  direction: rtl;
+}
+
+/* Profile card content alignment */
+.profile-card-content {
+  text-align: start;
+}
+
+[dir="rtl"] .profile-card-content {
+  text-align: start;
+}
+
+/* Prevent layout shifts during language switching */
+.layout-container, 
+.main-container, 
+.app-container,
+.settings-container,
+.profile-container,
+nav,
+header,
+main {
+  position: relative;
+  transform: translateZ(0);
+  contain: layout;
+}
+
+/* Consistent text alignment for both directions */
+[dir='rtl'] {
+  text-align: start;
+}
+
+[dir='ltr'] {
+  text-align: start;
+}
+
+/* RTL-specific marketplace and cart styles */
+.flex-row-reverse-rtl {
+  flex-direction: row;
+}
+
+[dir="rtl"] .flex-row-reverse-rtl {
+  flex-direction: row-reverse;
+}
+
+/* Icon flipping for RTL */
+.rtl-scale-x-flip-rtl {
+  transform: scaleX(1);
+}
+
+[dir="rtl"] .rtl-scale-x-flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* Marketplace card RTL enhancements */
+.marketplace-card {
+  text-align: start;
+}
+
+[dir="rtl"] .marketplace-card {
+  text-align: start;
+}
+
+/* Cart item RTL layout */
+.cart-item-layout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+[dir="rtl"] .cart-item-layout {
+  flex-direction: row-reverse;
+}
+
+/* Price display RTL support */
+.price-display {
+  direction: ltr;
+  text-align: end;
+}
+
+[dir="rtl"] .price-display {
+  text-align: start;
+}
+
+/* Quantity controls RTL */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[dir="rtl"] .quantity-controls {
+  flex-direction: row-reverse;
+}
+
+/* Prevent element repositioning */
+.preserve-position {
+  position: relative !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+}
+
+/* Icon flipping for RTL (for directional icons like trucks, arrows) */
+[dir="rtl"] .rtl-scale-x-flip-rtl {
+  transform: scaleX(-1);
+}
+
+[dir="ltr"] .rtl-scale-x-flip-rtl {
+  transform: scaleX(1);
+}
+
+/* Arabic RTL Widget Styling */
+.widget-card {
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+/* Ensure numbers and Gregorian dates stay LTR */
+.widget-card [dir="ltr"] {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* Arabic colon spacing */
+.arabic-colon {
+  margin-inline-start: 0.25rem;
+}
+
+/* Allow instructions to wrap and expand */
+.delivery-instructions {
+  direction: rtl;
+  height: auto;
+  overflow: visible;
+  min-height: fit-content;
+}
+
+/* Label with its own RTL embed so the colon points correctly */
+.instruction-label {
+  unicode-bidi: embed;
+  direction: rtl;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #92400e;
+}
+
+/* Value stays LTR so long URLs or dates keep order */
+.instruction-value {
+  unicode-bidi: embed;
+  direction: ltr;
+  text-align: start;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 0;
+  font-size: 0.875rem;
+  color: #92400e;
+}
+
+/* Remove any truncation or fixed height */
+.delivery-instructions,
+.delivery-instructions * {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Ensure modal content can expand properly */
+.bg-white.rounded-2xl.shadow-2xl {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Prevent content from being cut off in modals */
+.space-y-6 > * {
+  flex-shrink: 0;
+}
+
+/* Widget responsive adjustments for RTL */
+@media (max-width: 640px) {
+  .widget-card {
+    padding: 1rem;
+  }
+  
+  .widget-card .flex {
+    align-items: flex-start;
+    text-align: start;
+  }
+  
+  .instructions-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+/* Ensure proper text alignment in RTL widgets */
+.widget-card .flex.justify-between {
+  text-align: start;
+}
+
+.widget-card .text-start {
+  text-align: start;
+}
+
+.widget-card .text-end {
+  text-align: end;
+}
+
+.widget-card .text-end {
+  text-align: end;
+}

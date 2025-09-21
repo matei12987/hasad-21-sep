@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASAD - Create Account</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .registration-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 2rem;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #6b7280;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .input-container input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            inset-inline-start: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .password-toggle {
+            position: absolute;
+            inset-inline-end: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .password-toggle:hover {
+            color: #6b7280;
+        }
+
+        .register-button {
+            width: 100%;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1.5rem;
+        }
+
+        .register-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .register-button:active {
+            transform: translateY(0);
+        }
+
+        .register-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-text {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .login-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .login-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .login-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .strength-weak { color: #dc2626; }
+        .strength-medium { color: #f59e0b; }
+        .strength-strong { color: #16a34a; }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .registration-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="header">
+            <h1>HASAD</h1>
+            <p>Smart Farming at Your Fingertips</p>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+        <div id="success-message" class="success-message"></div>
+
+        <form id="registration-form" novalidate>
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-container">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                    </svg>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email address"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+            </div>
+
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-container">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Choose a username"
+                        required
+                        autocomplete="username"
+                        minlength="3"
+                        maxlength="20"
+                    >
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-container">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Create a strong password"
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" id="password-toggle" aria-label="Toggle password visibility">
+                        <svg id="eye-closed" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                        </svg>
+                        <svg id="eye-open" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="password-strength" class="password-strength"></div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div class="input-container">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <input 
+                        type="password" 
+                        id="confirm-password" 
+                        name="confirm-password" 
+                        placeholder="Confirm your password"
+                        required
+                        autocomplete="new-password"
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="register-button" id="register-button">
+                Create Account
+            </button>
+        </form>
+
+        <div class="login-text">
+            Already have an account? 
+            <a href="login-standalone.html" class="login-link">Sign In</a>
+        </div>
+    </div>
+
+    <script>
+        // Form elements
+        const registrationForm = document.getElementById('registration-form');
+        const emailInput = document.getElementById('email');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const passwordToggle = document.getElementById('password-toggle');
+        const eyeOpen = document.getElementById('eye-open');
+        const eyeClosed = document.getElementById('eye-closed');
+        const registerButton = document.getElementById('register-button');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+        const passwordStrength = document.getElementById('password-strength');
+
+        // Password visibility toggle
+        passwordToggle.addEventListener('click', function() {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            eyeOpen.style.display = isPassword ? 'block' : 'none';
+            eyeClosed.style.display = isPassword ? 'none' : 'block';
+        });
+
+        // Password strength checker
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const strength = checkPasswordStrength(password);
+            
+            passwordStrength.textContent = strength.text;
+            passwordStrength.className = `password-strength ${strength.class}`;
+        });
+
+        // Real-time password confirmation validation
+        confirmPasswordInput.addEventListener('input', function() {
+            if (this.value && this.value !== passwordInput.value) {
+                this.setCustomValidity('Passwords do not match');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Form submission
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            
+            // Hide previous messages
+            hideMessages();
+            
+            // Validation
+            if (!email || !username || !password || !confirmPassword) {
+                showError('Please fill in all fields');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showError('Please enter a valid email address');
+                return;
+            }
+            
+            if (username.length < 3) {
+                showError('Username must be at least 3 characters long');
+                return;
+            }
+            
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters long');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError('Passwords do not match');
+                return;
+            }
+            
+            // Show loading state
+            registerButton.disabled = true;
+            registerButton.textContent = 'Creating Account...';
+            
+            // Simulate registration (replace with actual API call)
+            setTimeout(() => {
+                // Reset button
+                registerButton.disabled = false;
+                registerButton.textContent = 'Create Account';
+                
+                // Simulate successful registration
+                showSuccess('Account created successfully! Redirecting to login...');
+                
+                // Redirect to login page after success
+                setTimeout(() => {
+                    window.location.href = 'login-standalone.html';
+                }, 2000);
+            }, 1500);
+        });
+
+        // Utility functions
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function checkPasswordStrength(password) {
+            if (password.length < 6) {
+                return { text: 'Weak password', class: 'strength-weak' };
+            } else if (password.length < 10 || !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+                return { text: 'Medium strength', class: 'strength-medium' };
+            } else {
+                return { text: 'Strong password', class: 'strength-strong' };
+            }
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function hideMessages() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+
+        // Username validation
+        usernameInput.addEventListener('input', function() {
+            const username = this.value;
+            if (username.length > 0 && username.length < 3) {
+                this.setCustomValidity('Username must be at least 3 characters long');
+            } else if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+                this.setCustomValidity('Username can only contain letters, numbers, and underscores');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>

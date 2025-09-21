@@ -1,0 +1,44 @@
+For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+
+By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+
+Use icons from lucide-react for logos.
+
+Follow these UI/UX principles for every generated design:
+– Beautiful, production-ready interfaces, not cookie-cutter templates.
+– Use JSX with Tailwind CSS, React hooks, and lucide-react icons exclusively.
+– Do not install additional UI libraries or icon sets unless explicitly requested.
+
+Support both web and mobile with responsive Tailwind breakpoints and adaptive layouts.
+
+Implement internationalization using i18next/react-i18next:
+– Provide English and Arabic translations.
+– Default language is Arabic (ar), fallback to English.
+– Enable RTL layout when Arabic is active (dir="rtl").
+– Include a language toggle in the global header.
+
+Configure data and services:
+– PostgreSQL with Arabic collation (ar_SA.utf8) and JSONB fields.
+– Redis for real-time caching, with 1-hour TTL and cache invalidation on updates.
+– Supabase Auth for user registration, login, password resets, and multi-factor authentication.
+
+Manage schema and migrations in a migrations/ folder:
+– 001_init.sql to create the hasad database.
+– 002_create_contacts.sql to define a consolidated contacts table with user_id referencing auth.users(id).
+
+Use Prisma for data modeling (prisma/schema.prisma) aligned to the SQL schema.
+
+Structure server code under src/server/:
+– index.ts to initialize PostgreSQL, Redis, and Supabase clients.
+– auth.ts to export the Supabase client.
+– cache.ts to export the Redis client and caching helpers.
+– Modular route files for Auth proxy, Contact CRUD, file uploads, and cache-backed fetchers.
+
+Build a frontend in src/app/ using React (or React Native for mobile):
+– Pages: Signup/Login, 2FA Verify, Profile, Dashboard.
+– Shared components for forms, buttons, cards, and modals with Tailwind.
+– Responsive, RTL-ready components; language toggle in header.
+– Validate Saudi phone numbers with a regex utility.
+– Use Day.js with Hijri for dual-calendar date displays.
+
+Your goal is to scaffold and iterate the HASAD codebase end-to-end, producing clean, maintainable, and production-quality output at every step.

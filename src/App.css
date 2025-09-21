@@ -1,0 +1,944 @@
+/* HASAD Color Palette */
+:root {
+  --primary-green: #4a7c59;
+  --secondary-green: #6b9b7a;
+  --light-green: #8fb99c;
+  --accent-green: #3d6b4a;
+  --dark-green: #2d4a35;
+  
+  --background-light: #f8faf9;
+  --background-white: #ffffff;
+  --background-card: #f5f7f6;
+  
+  --text-primary: #2d4a35;
+  --text-secondary: #5a6b5d;
+  --text-light: #8a9b8d;
+  
+  --border-light: #e1e8e4;
+  --border-medium: #c7d2ca;
+  
+  --success: #4caf50;
+  --warning: #ff9800;
+  --error: #f44336;
+  --info: #2196f3;
+  
+  --shadow-light: 0 2px 8px rgba(77, 124, 89, 0.1);
+  --shadow-medium: 0 4px 16px rgba(77, 124, 89, 0.15);
+  --shadow-heavy: 0 8px 32px rgba(77, 124, 89, 0.2);
+  
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  max-width: 428px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--background-white);
+  position: relative;
+  box-shadow: var(--shadow-medium);
+}
+
+/* Responsive breakpoints */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+.screen-content {
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  .screen-content {
+    padding-bottom: 0;
+    grid-column: 2;
+  }
+}
+
+/* Typography */
+.heading-xl {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.heading-lg {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.heading-md {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.heading-sm {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.body-lg {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.body-md {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.body-sm {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light);
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Text overflow utilities */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border-radius: var(--border-radius-md);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-green);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+  background-color: var(--background-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+/* Cards */
+.card {
+  background-color: var(--background-white);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 24px;
+  }
+}
+
+.card-hover {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .form-group {
+    margin-bottom: 16px;
+  }
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius-md);
+  font-size: 16px;
+  background-color: var(--background-white);
+  transition: border-color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .form-input {
+    padding: 10px 14px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Status Indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+@media (min-width: 768px) {
+  .status-indicator {
+    max-width: none;
+  }
+}
+
+.status-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success);
+}
+
+.status-warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: var(--warning);
+}
+
+.status-error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--error);
+}
+
+.status-info {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: var(--info);
+}
+
+/* Progress Bars */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary-green);
+  transition: width 0.3s ease;
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-3 {
+  gap: 12px;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .gap-2 { gap: 6px; }
+  .gap-3 { gap: 10px; }
+  .gap-4 { gap: 12px; }
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mb-3 {
+  margin-bottom: 12px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.p-4 {
+  padding: 16px;
+}
+
+.px-4 {
+  padding-inline-start: 16px;
+  padding-inline-end: 16px;
+}
+
+.py-4 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/* Responsive grid utilities */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-responsive {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Container utilities for better responsive behavior */
+.container-responsive {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Responsive Design */
+
+/* Prevent layout shifts during language switching */
+.layout-container, .main-container, .app-container {
+  position: relative;
+  transform: translateZ(0); /* Force hardware acceleration */
+  contain: layout; /* Contain layout changes */
+}
+
+/* Ensure consistent text alignment */
+[dir='rtl'] {
+  text-align: start;
+}
+
+[dir='ltr'] {
+  text-align: start;
+}
+
+/* Prevent element repositioning */
+.preserve-position {
+  position: relative !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+}
+
+/* RTL Support for Arabic */
+.subscription-rtl {
+  direction: rtl;
+  text-align: start;
+}
+
+.subscription-rtl .flex {
+  flex-direction: row-reverse;
+}
+
+.subscription-rtl .justify-between {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] {
+  text-align: start;
+}
+
+[dir="rtl"] .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .justify-between {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .gap-2,
+[dir="rtl"] .gap-3,
+[dir="rtl"] .gap-4 {
+  flex-direction: row-reverse;
+}
+
+/* Maintain LTR for specific elements that should not be reversed */
+[dir="rtl"] .no-rtl {
+  direction: ltr;
+  text-align: start;
+}
+
+[dir="rtl"] .no-rtl .flex {
+  flex-direction: row;
+}
+
+/* Profile stats grid RTL support */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+[dir="rtl"] .profile-stats-grid {
+  direction: rtl;
+}
+
+/* Revenue number formatting for mobile */
+.revenue-number {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  text-align: center;
+  line-height: 1.1;
+}
+
+@media (max-width: 375px) {
+  .revenue-number {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+  .revenue-number {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 481px) {
+  .revenue-number {
+    font-size: 2.25rem;
+  }
+}
+
+/* Profile card content alignment */
+.profile-card-content {
+  text-align: start;
+}
+
+/* Dark mode support */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.dark .bg-white {
+  background-color: #374151;
+}
+
+.dark .text-gray-900 {
+  color: #f9fafb;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-500 {
+  color: #9ca3af;
+}
+
+.dark .border-gray-200 {
+  border-color: #4b5563;
+}
+
+.dark .border-gray-300 {
+  border-color: #6b7280;
+}
+
+.dark .bg-gray-50 {
+  background-color: #4b5563;
+}
+
+.dark .bg-gray-100 {
+  background-color: #6b7280;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  background-color: #4b5563;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  background-color: #6b7280;
+}
+
+@media (max-width: 375px) {
+  .app-container {
+    max-width: 100%;
+  }
+  
+  .heading-xl {
+    font-size: 24px;
+  }
+  
+  .heading-lg {
+    font-size: 20px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .status-indicator {
+    font-size: 10px;
+    padding: 2px 8px;
+    max-width: 80px;
+  }
+  
+  /* Task-specific mobile optimizations */
+  .task-card {
+    padding: 12px;
+  }
+  
+  .task-title {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  
+  .task-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .task-meta {
+    font-size: 10px;
+  }
+  
+  .task-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .task-button {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile-first task optimizations */
+@media (max-width: 480px) {
+  /* Subscription Plans Mobile Optimizations */
+  .subscription-card {
+    padding: 12px;
+    margin: 8px;
+  }
+  
+  .subscription-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .subscription-content {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .subscription-price {
+    align-self: flex-end;
+    text-align: right;
+  }
+  
+  .subscription-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .subscription-actions {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .subscription-action-button {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .task-container {
+    padding: 12px;
+    margin: 8px;
+  }
+  
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .task-content {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .task-badges {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  
+  .task-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .task-checklist-item {
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .task-action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .task-action-button {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  .heading-xl { font-size: 32px; }
+  .heading-lg { font-size: 28px; }
+  .heading-md { font-size: 24px; }
+  .heading-sm { font-size: 20px; }
+  
+  .body-lg { font-size: 18px; }
+  .body-md { font-size: 16px; }
+  .body-sm { font-size: 14px; }
+  
+  .btn {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+  
+  .card {
+    padding: 28px;
+  }
+  
+  .form-input {
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+  
+  /* Desktop task optimizations */
+  .task-container {
+    padding: 24px;
+  }
+  
+  .task-header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .task-badges {
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .task-meta-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .task-action-buttons {
+    flex-direction: row;
+    gap: 12px;
+  }
+  
+  .task-action-button {
+    width: auto;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* Prevent text overflow in flex containers */
+.flex-text-container {
+  min-width: 0;
+  flex: 1;
+}
+
+.flex-text-container > * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Ensure proper text wrapping in cards */
+.card-content {
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Fix for long URLs or email addresses */
+.break-all {
+  word-break: break-all;
+}
+
+/* Responsive text sizing */
+@media (max-width: 480px) {
+  .responsive-text-sm {
+    font-size: 12px;
+  }
+  
+  .responsive-text-md {
+    font-size: 14px;
+  }
+  
+  .responsive-text-lg {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-text-sm {
+    font-size: 14px;
+  }
+  
+  .responsive-text-md {
+    font-size: 16px;
+  }
+  
+  .responsive-text-lg {
+    font-size: 18px;
+  }
+}

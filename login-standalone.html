@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASAD - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #6b7280;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .input-container input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            inset-inline-start: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .password-toggle {
+            position: absolute;
+            inset-inline-end: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .password-toggle:hover {
+            color: #6b7280;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-inline-end: 0.75rem;
+            cursor: pointer;
+            accent-color: #3b82f6;
+            border: 2px solid #d1d5db;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .checkbox-container input[type="checkbox"]:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .checkbox-container input[type="checkbox"]:checked {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        .checkbox-container input[type="checkbox"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .checkbox-container label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            cursor: pointer;
+            margin: 0;
+            user-select: none;
+            transition: color 0.2s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .checkbox-container label:hover {
+            color: #374151;
+        }
+
+        .forgot-link {
+            font-size: 0.875rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        .forgot-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .forgot-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        .login-button {
+            width: 100%;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .login-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .signup-text {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .signup-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        .signup-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .signup-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+        }
+
+        /* Force pointer events on interactive elements */
+        a, button, input[type="checkbox"] {
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Ensure form container is above any potential overlays */
+        .login-container {
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Ensure all interactive form elements are clickable */
+        .form-group,
+        .form-row,
+        .checkbox-container,
+        .signup-text {
+            position: relative;
+            z-index: 6;
+        }
+
+        /* Specific z-index for critical interactive elements */
+        .checkbox-container input[type="checkbox"],
+        .checkbox-container label,
+        .forgot-link,
+        .signup-link,
+        .login-button {
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        /* Prevent any pseudo-elements from blocking interactions */
+        *::before,
+        *::after {
+            pointer-events: none;
+        }
+
+        /* Ensure body background doesn't interfere */
+        body::before,
+        body::after {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="header">
+            <h1>HASAD</h1>
+            <p>Smart Farming at Your Fingertips</p>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+        <div id="success-message" class="success-message"></div>
+
+        <form id="login-form" novalidate>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-container">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                    </svg>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="admin@hasad.com"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-container">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required
+                        autocomplete="current-password"
+                    >
+                    <button type="button" class="password-toggle" id="password-toggle" aria-label="Toggle password visibility">
+                        <svg id="eye-closed" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                        </svg>
+                        <svg id="eye-open" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="remember-me" name="remember-me" class="remember-checkbox">
+                    <label for="remember-me" class="remember-label">Remember me</label>
+                </div>
+                <a href="forgot-password.html" class="forgot-link" id="forgot-password-link">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-button" id="login-button">
+                Login
+            </button>
+        </form>
+
+        <div class="signup-text">
+            Don't have an account? 
+            <a href="registration.html" class="signup-link" id="signup-link">Sign Up</a>
+        </div>
+    </div>
+
+    <script>
+        // Form elements
+        const loginForm = document.getElementById('login-form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const rememberMeCheckbox = document.getElementById('remember-me');
+        const passwordToggle = document.getElementById('password-toggle');
+        const eyeOpen = document.getElementById('eye-open');
+        const eyeClosed = document.getElementById('eye-closed');
+        const loginButton = document.getElementById('login-button');
+        const forgotPasswordLink = document.getElementById('forgot-password-link');
+        const signupLink = document.getElementById('signup-link');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+
+        // Password visibility toggle
+        passwordToggle.addEventListener('click', function() {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            eyeOpen.style.display = isPassword ? 'block' : 'none';
+            eyeClosed.style.display = isPassword ? 'none' : 'block';
+        });
+
+        // Remember me functionality
+        rememberMeCheckbox.addEventListener('change', function() {
+            console.log('Remember me:', this.checked);
+            if (this.checked) {
+                localStorage.setItem('rememberMe', 'true');
+            } else {
+                localStorage.removeItem('rememberMe');
+            }
+        });
+
+        // Load remember me state
+        if (localStorage.getItem('rememberMe') === 'true') {
+            rememberMeCheckbox.checked = true;
+        }
+
+        // Form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            
+            // Hide previous messages
+            hideMessages();
+            
+            // Basic validation
+            if (!email || !password) {
+                showError('Please fill in all fields');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showError('Please enter a valid email address');
+                return;
+            }
+            
+            // Show loading state
+            loginButton.disabled = true;
+            loginButton.textContent = 'Logging in...';
+            
+            // Simulate login (replace with actual authentication)
+            setTimeout(() => {
+                // Reset button
+                loginButton.disabled = false;
+                loginButton.textContent = 'Login';
+                
+                // Simulate successful login
+                if (email === 'admin@hasad.com' && password === 'password') {
+                    showSuccess('Login successful! Redirecting...');
+                    
+                    // Save email if remember me is checked
+                    if (rememberMeCheckbox.checked) {
+                        localStorage.setItem('savedEmail', email);
+                    }
+                    
+                    // Simulate redirect
+                    setTimeout(() => {
+                        alert('Login successful! This would redirect to the dashboard.');
+                    }, 1500);
+                } else {
+                    showError('Invalid email or password');
+                }
+            }, 1500);
+        });
+
+        // Utility functions
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function hideMessages() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+
+        // Load saved email if remember me was checked
+        const savedEmail = localStorage.getItem('savedEmail');
+        if (savedEmail && localStorage.getItem('rememberMe') === 'true') {
+            emailInput.value = savedEmail;
+        }
+    </script>
+</body>
+</html>
