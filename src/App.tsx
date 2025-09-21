@@ -22,6 +22,7 @@ import { TasksAndMaintenance } from './components/farm/TasksAndMaintenance';
 import { ProductCatalog } from './components/marketplace/ProductCatalog';
 import { AnalyticsReports } from './components/shared/AnalyticsReports';
 import { SettingsScreen } from './components/settings/SettingsScreen';
+import { SupportScreen } from './components/support/SupportScreen';
 import { SubscriptionPlans } from './components/marketplace/SubscriptionPlans';
 import { SettingsProvider } from './contexts/SettingsContext';
 import { useAuth } from './contexts/AuthContext';
@@ -126,6 +127,8 @@ function AppContent() {
         return <ProfileScreen onNavigateToSettings={() => setCurrentScreen('settings')} />;
       case 'settings':
         return <SettingsScreen onBack={() => setCurrentScreen('profile')} />;
+      case 'support':
+        return <SupportScreen onBack={() => setCurrentScreen('profile')} />;
       case 'farmer-dashboard':
         return (
           <FarmDashboard

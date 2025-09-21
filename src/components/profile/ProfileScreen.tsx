@@ -56,7 +56,12 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigateToSettin
       show: user?.type === 'consumer',
     },
     { icon: '🔔', title: t('notificationSettings'), subtitle: t('managePreferences') },
-    { icon: '❓', title: t('helpAndSupport'), subtitle: t('getAssistance') },
+    { 
+      icon: '❓', 
+      title: t('helpAndSupport'), 
+      subtitle: t('getAssistance'),
+      action: () => setCurrentScreen('support')
+    },
     {
       icon: '⚙️',
       title: t('appPreferences'),
