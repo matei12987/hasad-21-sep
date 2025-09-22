@@ -324,7 +324,9 @@ export const ProductCatalog: React.FC = () => {
               {/* Product Info */}
               <div className="p-4">
                 <div className="mb-2">
-                  <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2">{t(product.name)}</h3>
+                  <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2">
+                    {t(product.name, { defaultValue: humanize(product.name) })}
+                  </h3>
                   <p className="text-sm text-gray-600 line-clamp-2 break-words">
                     {t(product.description)}
                   </p>
