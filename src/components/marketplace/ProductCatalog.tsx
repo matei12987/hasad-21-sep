@@ -71,7 +71,7 @@ export const ProductCatalog: React.FC = () => {
         id: '2',
         farmer_id: 'farmer2',
         farm_site_id: 'site2',
-        name: 'organicCherryTomatoes',
+        name: 'organicCherryTomatoes', { defaultValue: 'Organic Cherry Tomatoes' },
         description: 'sweetJuicyTomatoes',
         category: 'vegetables',
         images: ['🍅'],
