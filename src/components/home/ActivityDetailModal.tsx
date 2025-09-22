@@ -175,7 +175,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
       <div className="bg-white border border-gray-200 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
           <Truck className="w-5 h-5 text-orange-600" />
-          {t('deliveryInformation'), { defaultValue: 'Delivery Information' }}
+          {t('deliveryInformation', { defaultValue: 'Delivery Information' })}
         </h4>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
