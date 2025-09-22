@@ -181,7 +181,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-gray-500" />
             <span className="text-sm text-gray-600">
-              {t('currentLocation', { defaultValue: 'Current Location' })}: {activity.details.location}
+              {t('currentLocation', { defaultValue: 'Current Location' })} {activity.details.location}
             </span>
           </div>
           {activity.details.deliveryDate && (
