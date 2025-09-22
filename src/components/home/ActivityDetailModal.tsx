@@ -66,7 +66,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
           </span>
         </div>
         <p className="text-gray-600 text-sm">
-          {t('reference')}: {activity.details.referenceNumber}
+          {t('reference', { defaultValue: 'Reference' })}: {activity.details.referenceNumber}
         </p>
         {activity.details.trackingNumber && (
           <p className="text-gray-600 text-sm">
