@@ -188,7 +188,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-gray-500" />
               <span className="text-sm text-gray-600">
-                {t('deliveredOn')}: {formatDate(activity.details.deliveryDate)}
+                {t('deliveredOn', { defaultValue: 'Delivered On' })}: {formatDate(activity.details.deliveryDate)}
               </span>
             </div>
           )}
