@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSettings } from '../../contexts/SettingsContext';
-import { humanize } from '../../utils/humanize';
+import { humanize } from '../../helpers/humanize';
 import {
   Search,
   Filter,
