@@ -210,7 +210,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
             <div className="delivery-instructions mt-3 p-3 bg-yellow-50 rounded-lg" dir="rtl">
               <div className="flex justify-between items-start gap-3">
                 <span className="instruction-label" dir="rtl">
-                  {t('deliveryNotes, { defaultValue: 'Delivery Notes' }')}؍
+                  {t('deliveryNotesf')}؍
                 </span>
                 <span className="instruction-value" dir="ltr">
                   {activity.details.deliveryNotes}
