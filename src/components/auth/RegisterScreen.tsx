@@ -84,7 +84,7 @@ export const RegisterScreen: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, type: 'consumer' })}
-                  className={`p-6 lg:p-8 rounded-xl border-3 transition-all transform hover:scale-105 ${
+                  className={`p-6 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
                     formData.type === 'consumer'
                       ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
                       : 'border-gray-200 bg-gray-50 hover:border-gray-300'
@@ -96,7 +96,7 @@ export const RegisterScreen: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, type: 'farmer' })}
-                  className={`p-6 lg:p-8 rounded-xl border-3 transition-all transform hover:scale-105 ${
+                  className={`p-6 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
                     formData.type === 'farmer'
                       ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
                       : 'border-gray-200 bg-gray-50 hover:border-gray-300'

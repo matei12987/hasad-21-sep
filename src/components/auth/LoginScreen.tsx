@@ -58,7 +58,7 @@ export const LoginScreen: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setUserType('consumer')}
-                  className={`p-6 lg:p-8 rounded-xl border-3 transition-all transform hover:scale-105 ${
+                  className={`p-6 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
                     userType === 'consumer'
                       ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
                       : 'border-gray-200 bg-gray-50 hover:border-gray-300'
@@ -70,7 +70,7 @@ export const LoginScreen: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setUserType('farmer')}
-                  className={`p-6 lg:p-8 rounded-xl border-3 transition-all transform hover:scale-105 ${
+                  className={`p-6 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
                     userType === 'farmer'
                       ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
                       : 'border-gray-200 bg-gray-50 hover:border-gray-300'

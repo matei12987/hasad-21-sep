@@ -7,12 +7,32 @@
     <meta name="description" content="HASAD - Bilingual Contact Management System" />
     <title>HASAD - Bilingual Contact Management System</title>
     <style>
-      /* Prevent flash of unstyled content */
-      #root {
-        min-height: 100vh;
-        background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+      /* Reset any constraining styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Ensure root takes full width */
+      #root {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
       /* Loading fallback */
       .loading-fallback {
         display: flex;
@@ -21,7 +41,7 @@
         min-height: 100vh;
         font-family: system-ui, -apple-system, sans-serif;
       }
-      
+
       .loading-spinner {
         width: 32px;
         height: 32px;
@@ -31,7 +51,7 @@
         animation: spin 1s linear infinite;
         margin-right: 12px;
       }
-      
+
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
