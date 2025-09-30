@@ -56,7 +56,7 @@ export const AuthContainer: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="w-full max-w-md relative z-10 preserve-position">
+      <div className="w-full max-w-5xl relative z-10 preserve-position">
         <React.Suspense
           fallback={
             <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
