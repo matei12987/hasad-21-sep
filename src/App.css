@@ -54,6 +54,8 @@ body {
   min-height: 100vh;
   background-color: var(--background-white);
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 /* Responsive breakpoints */
@@ -547,6 +549,8 @@ body {
   width: 100%;
   max-width: none;
   display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* RTL Support for Arabic */

@@ -203,24 +203,26 @@ function AppContent() {
 
 function App() {
   return (
-    <SettingsProvider>
-      <AuthProvider>
-        <CartProvider>
-          <Router>
-            <AppContent />
-            {/* Development Tools - Only in DEV mode */}
-            {import.meta.env.DEV && (
-              <>
-                <I18nDevTools show={true} />
-                <MissingKeyOverlay />
-                <RTLTestSuite />
-                <I18nStorybook />
-              </>
-            )}
-          </Router>
-        </CartProvider>
-      </AuthProvider>
-    </SettingsProvider>
+    <div id="app-root" dir="ltr" className="min-h-screen w-screen">
+      <SettingsProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Router>
+              <AppContent />
+              {/* Development Tools - Only in DEV mode */}
+              {import.meta.env.DEV && (
+                <>
+                  <I18nDevTools show={true} />
+                  <MissingKeyOverlay />
+                  <RTLTestSuite />
+                  <I18nStorybook />
+                </>
+              )}
+            </Router>
+          </CartProvider>
+        </AuthProvider>
+      </SettingsProvider>
+    </div>
   );
 }
 

@@ -18,6 +18,11 @@ html, body, #root {
   padding: 0;
 }
 
+/* Prevent any stray overflow causing a left/right gutter */
+html, body {
+  overflow-x: hidden;
+}
+
 /* Ensure consistent text alignment */
 [dir='rtl'] {
   text-align: start;
