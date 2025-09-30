@@ -57,18 +57,18 @@ export const RegisterScreen: React.FC = () => {
     >
       <div className="w-full max-w-4xl mx-auto">
         {/* Logo */}
-        <div className="text-center mb-10 lg:mb-12">
-          <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-6 bg-white rounded-3xl flex items-center justify-center shadow-2xl">
-            <div className="text-5xl lg:text-6xl">🌱</div>
+        <div className="text-center mb-6 lg:mb-12">
+          <div className="w-16 h-16 lg:w-32 lg:h-32 mx-auto mb-3 lg:mb-6 bg-white rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-2xl">
+            <div className="text-3xl lg:text-6xl">🌱</div>
           </div>
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-3">HASAD</h1>
-          <p className="text-xl lg:text-2xl text-green-100">Join the Agricultural Revolution</p>
+          <h1 className="text-3xl lg:text-6xl font-bold text-white mb-1 lg:mb-3">HASAD</h1>
+          <p className="text-sm lg:text-2xl text-green-100">Join the Agricultural Revolution</p>
         </div>
 
         {/* Registration Form */}
-        <div className="bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl">
+        <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl">
           <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-8 text-gray-900">Create Account</h2>
+          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900">Create Account</h2>
 
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
@@ -78,77 +78,77 @@ export const RegisterScreen: React.FC = () => {
 
           <form onSubmit={handleRegister}>
             {/* User Type Selection */}
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">I am a:</label>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">I am a:</label>
+              <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, type: 'consumer' })}
-                  className={`p-6 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
+                  className={`p-4 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
                     formData.type === 'consumer'
                       ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
                       : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                   }`}
                 >
-                  <div className="text-4xl lg:text-5xl mb-3">🛒</div>
-                  <div className="text-lg lg:text-xl font-medium">Consumer</div>
+                  <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">🛒</div>
+                  <div className="text-base lg:text-xl font-medium">Consumer</div>
                 </button>
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, type: 'farmer' })}
-                  className={`p-6 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
+                  className={`p-4 lg:p-8 rounded-xl border-2 transition-all transform hover:scale-105 ${
                     formData.type === 'farmer'
                       ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
                       : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                   }`}
                 >
-                  <div className="text-4xl lg:text-5xl mb-3">👨‍🌾</div>
-                  <div className="text-lg lg:text-xl font-medium">Farmer</div>
+                  <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">👨‍🌾</div>
+                  <div className="text-base lg:text-xl font-medium">Farmer</div>
                 </button>
               </div>
             </div>
 
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Full Name</label>
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Full Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Enter your full name"
                 required
               />
             </div>
 
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Email</label>
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Enter your email"
                 required
               />
             </div>
 
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Phone</label>
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Phone</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Enter your phone number"
                 required
               />
             </div>
 
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">
                 {formData.type === 'farmer' ? 'Farm Location' : 'Location'}
               </label>
               <input
@@ -156,7 +156,7 @@ export const RegisterScreen: React.FC = () => {
                 name="location"
                 value={formData.location}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder={
                   formData.type === 'farmer' ? 'Enter your farm location' : 'Enter your location'
                 }
@@ -164,39 +164,39 @@ export const RegisterScreen: React.FC = () => {
               />
             </div>
 
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Password</label>
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Password</label>
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Create a password"
                 required
               />
             </div>
 
-            <div className="mb-6 lg:mb-8">
-              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Confirm Password</label>
+            <div className="mb-5 lg:mb-8">
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Confirm Password</label>
               <input
                 type="password"
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Confirm your password"
                 required
               />
             </div>
 
-            <button type="submit" disabled={loading} className="w-full bg-green-600 text-white py-4 lg:py-5 rounded-lg text-base lg:text-lg font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl mb-6">
+            <button type="submit" disabled={loading} className="w-full bg-green-600 text-white py-3 lg:py-5 rounded-lg text-base lg:text-lg font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl mb-5 lg:mb-6">
               {loading ? 'Creating Account...' : 'Create Account'}
             </button>
           </form>
 
           <div className="text-center">
-            <p className="text-base lg:text-lg text-gray-600">
+            <p className="text-sm lg:text-lg text-gray-600">
               Already have an account?{' '}
               <Link to="/" className="text-green-600 font-semibold hover:text-green-700 transition-colors hover:underline">
                 Sign In
