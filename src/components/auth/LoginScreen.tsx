@@ -26,22 +26,23 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col justify-center px-4"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8"
       style={{ background: 'linear-gradient(135deg, #4a7c59 0%, #6b9b7a 100%)' }}
     >
-      <div className="w-full max-w-sm mx-auto">
+      <div className="w-full max-w-4xl mx-auto">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center">
-            <div className="text-3xl">🌱</div>
+        <div className="text-center mb-10 lg:mb-12">
+          <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-6 bg-white rounded-3xl flex items-center justify-center shadow-2xl">
+            <div className="text-5xl lg:text-6xl">🌱</div>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">HASAD</h1>
-          <p className="text-green-100">Smart Farming at Your Fingertips</p>
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-3">HASAD</h1>
+          <p className="text-xl lg:text-2xl text-green-100">Smart Farming at Your Fingertips</p>
         </div>
 
         {/* Login Form */}
-        <div className="bg-white rounded-2xl p-6 shadow-xl">
-          <h2 className="heading-lg text-center mb-6">Welcome Back</h2>
+        <div className="bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl">
+          <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-8 text-gray-900">Welcome Back</h2>
 
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
@@ -51,80 +52,81 @@ export const LoginScreen: React.FC = () => {
 
           <form onSubmit={handleLogin}>
             {/* User Type Selection */}
-            <div className="form-group">
-              <label className="form-label">I am a:</label>
-              <div className="flex gap-2">
+            <div className="mb-6 lg:mb-8">
+              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">I am a:</label>
+              <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
                   onClick={() => setUserType('consumer')}
-                  className={`flex-1 p-3 rounded-lg border-2 transition-all ${
+                  className={`p-6 lg:p-8 rounded-xl border-3 transition-all transform hover:scale-105 ${
                     userType === 'consumer'
-                      ? 'border-green-500 bg-green-50 text-green-700'
-                      : 'border-gray-200 bg-gray-50'
+                      ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
+                      : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                   }`}
                 >
-                  <div className="text-2xl mb-1">🛒</div>
-                  <div className="text-sm font-medium">Consumer</div>
+                  <div className="text-4xl lg:text-5xl mb-3">🛒</div>
+                  <div className="text-lg lg:text-xl font-medium">Consumer</div>
                 </button>
                 <button
                   type="button"
                   onClick={() => setUserType('farmer')}
-                  className={`flex-1 p-3 rounded-lg border-2 transition-all ${
+                  className={`p-6 lg:p-8 rounded-xl border-3 transition-all transform hover:scale-105 ${
                     userType === 'farmer'
-                      ? 'border-green-500 bg-green-50 text-green-700'
-                      : 'border-gray-200 bg-gray-50'
+                      ? 'border-green-500 bg-green-50 text-green-700 shadow-lg'
+                      : 'border-gray-200 bg-gray-50 hover:border-gray-300'
                   }`}
                 >
-                  <div className="text-2xl mb-1">👨‍🌾</div>
-                  <div className="text-sm font-medium">Farmer</div>
+                  <div className="text-4xl lg:text-5xl mb-3">👨‍🌾</div>
+                  <div className="text-lg lg:text-xl font-medium">Farmer</div>
                 </button>
               </div>
             </div>
 
-            <div className="form-group">
-              <label className="form-label">Email</label>
+            <div className="mb-6 lg:mb-8">
+              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="form-input"
+                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Enter your email"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <label className="form-label">Password</label>
+            <div className="mb-6 lg:mb-8">
+              <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="form-input"
+                className="w-full px-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Enter your password"
                 required
               />
             </div>
 
-            <button type="submit" disabled={loading} className="btn btn-primary w-full mb-4">
+            <button type="submit" disabled={loading} className="w-full bg-green-600 text-white py-4 lg:py-5 rounded-lg text-base lg:text-lg font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl mb-6">
               {loading ? 'Signing In...' : 'Sign In'}
             </button>
           </form>
 
           <div className="text-center">
-            <p className="body-md">
+            <p className="text-base lg:text-lg text-gray-600">
               Don't have an account?{' '}
-              <Link to="/register" className="text-green-600 font-medium hover:text-green-700">
+              <Link to="/register" className="text-green-600 font-semibold hover:text-green-700 transition-colors hover:underline">
                 Sign Up
               </Link>
             </p>
           </div>
+          </div>
         </div>
 
         {/* Demo Credentials */}
-        <div className="mt-6 bg-white/10 rounded-lg p-4">
-          <p className="text-white text-sm font-medium mb-2">Demo Credentials:</p>
-          <p className="text-green-100 text-xs">Email: demo@hasad.com</p>
-          <p className="text-green-100 text-xs">Password: demo123</p>
+        <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <p className="text-white text-lg font-semibold mb-3">Demo Credentials:</p>
+          <p className="text-green-100 text-base">Email: demo@hasad.com</p>
+          <p className="text-green-100 text-base">Password: demo123</p>
         </div>
       </div>
     </div>

@@ -145,8 +145,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onToggleMode }) => {
 
   return (
     <div className="w-full preserve-position">
-      <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
-        <div className="max-w-2xl mx-auto">
+      <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 lg:p-16">
+        <div className="max-w-3xl mx-auto">
         {/* Language Dropdown - Top Right */}
         <div className="flex justify-end mb-4">
           <div className="relative">

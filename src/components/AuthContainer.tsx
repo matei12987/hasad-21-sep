@@ -49,14 +49,16 @@ export const AuthContainer: React.FC = () => {
     );
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4 relative preserve-position">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600" />
+    <div className="min-h-screen bg-gradient-to-br from-green-600 via-green-500 to-teal-600 flex items-center justify-center p-4 sm:p-6 lg:p-8 relative preserve-position">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
       </div>
 
       {/* Main Content */}
-      <div className="w-full max-w-5xl relative z-10 preserve-position">
+      <div className="w-full max-w-6xl relative z-10 preserve-position">
         <React.Suspense
           fallback={
             <div className="bg-white rounded-2xl shadow-xl p-8 text-center">

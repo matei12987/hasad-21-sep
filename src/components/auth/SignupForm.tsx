@@ -89,8 +89,9 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
   };
 
   return (
-    <div className="w-full max-w-md preserve-position">
-      <div className="bg-white rounded-2xl shadow-xl p-8">
+    <div className="w-full preserve-position">
+      <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 lg:p-16">
+        <div className="max-w-3xl mx-auto">
         {/* Language Dropdown - Top Right */}
         <div className="flex justify-end mb-4">
           <div className="relative">
@@ -146,9 +147,9 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
           </div>
         </div>
 
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">{t('createAccount')}</h2>
-          <p className="text-gray-600">{t('manageContacts')}</p>
+        <div className="text-center mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-3">{t('createAccount')}</h2>
+          <p className="text-lg text-gray-600">{t('manageContacts')}</p>
         </div>
 
         {error && (
@@ -163,55 +164,55 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 lg:space-y-8">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">{t('email')}</label>
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">{t('email')}</label>
             <div className="relative">
-              <Mail className="absolute inset-inline-start-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Mail className="absolute inset-inline-start-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 lg:w-6 lg:h-6" />
               <input
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="w-full ps-10 pe-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                className="w-full ps-12 lg:ps-14 pe-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">{t('password')}</label>
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">{t('password')}</label>
             <div className="relative">
-              <Lock className="absolute inset-inline-start-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Lock className="absolute inset-inline-start-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 lg:w-6 lg:h-6" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full ps-10 pe-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                className="w-full ps-12 lg:ps-14 pe-14 lg:pe-16 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 required
                 minLength={6}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-inline-end-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute inset-inline-end-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
-                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                {showPassword ? <EyeOff className="w-5 h-5 lg:w-6 lg:h-6" /> : <Eye className="w-5 h-5 lg:w-6 lg:h-6" />}
               </button>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">
               {t('confirmPassword')}
             </label>
             <div className="relative">
-              <Lock className="absolute inset-inline-start-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Lock className="absolute inset-inline-start-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 lg:w-6 lg:h-6" />
               <input
                 type="password"
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)}
-                className="w-full ps-10 pe-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                className="w-full ps-12 lg:ps-14 pe-4 py-4 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 required
               />
             </div>
@@ -220,14 +221,14 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-md hover:shadow-lg"
+            className="w-full bg-blue-600 text-white py-4 lg:py-5 rounded-lg text-base lg:text-lg font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-md hover:shadow-lg"
             aria-label={loading ? t('loading') : t('signup')}
           >
             {loading ? t('loading') : t('signup')}
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center text-base lg:text-lg">
           <p className="text-gray-600">
             {t('alreadyHaveAccount')}{' '}
             <a
@@ -247,6 +248,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
               {t('login')}
             </a>
           </p>
+        </div>
         </div>
       </div>
     </div>
