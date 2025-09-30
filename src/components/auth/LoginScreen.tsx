@@ -26,9 +26,9 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-[linear-gradient(135deg,#4a7c59_0%,#6b9b7a_100%)]"
+      className="min-h-screen w-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 bg-[linear-gradient(135deg,#4a7c59_0%,#6b9b7a_100%)]"
     >
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-4xl mx-auto">
         {/* Logo */}
         <div className="text-center mb-6 lg:mb-12">
           <div className="w-16 h-16 lg:w-32 lg:h-32 mx-auto mb-3 lg:mb-6 bg-white rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-2xl">
