@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { LoginForm } from './auth/LoginForm';
 import { SignupForm } from './auth/SignupForm';
+import { BrandingPanel } from './auth/BrandingPanel';
 
 export const AuthContainer: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -49,30 +50,59 @@ export const AuthContainer: React.FC = () => {
     );
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-600 via-green-500 to-teal-600 flex items-center justify-center p-4 sm:p-6 lg:p-8 relative preserve-position">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+    <div className="min-h-screen flex preserve-position">
+      {/* Mobile Background - shown only on mobile */}
+      <div className="lg:hidden min-h-screen bg-gradient-to-br from-green-600 via-green-500 to-teal-600 flex items-center justify-center p-4 sm:p-6 relative preserve-position w-full">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+        </div>
+
+        {/* Main Content */}
+        <div className="w-full max-w-6xl relative z-10 preserve-position">
+          <React.Suspense
+            fallback={
+              <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4" />
+                <p className="text-gray-600">Loading...</p>
+              </div>
+            }
+          >
+            {isLogin ? (
+              <LoginForm onToggleMode={toggleMode} />
+            ) : (
+              <SignupForm onToggleMode={toggleMode} />
+            )}
+          </React.Suspense>
+        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="w-full max-w-6xl relative z-10 preserve-position">
-        <React.Suspense
-          fallback={
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4" />
-              <p className="text-gray-600">Loading...</p>
-            </div>
-          }
-        >
-          {isLogin ? (
-            <LoginForm onToggleMode={toggleMode} />
-          ) : (
-            <SignupForm onToggleMode={toggleMode} />
-          )}
-        </React.Suspense>
+      {/* Desktop Split Screen Layout */}
+      <div className="hidden lg:grid lg:grid-cols-2 w-full min-h-screen">
+        {/* Left Panel - Branding */}
+        <BrandingPanel />
+
+        {/* Right Panel - Form */}
+        <div className="bg-gray-50 flex items-center justify-center p-8 xl:p-12">
+          <div className="w-full max-w-md">
+            <React.Suspense
+              fallback={
+                <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4" />
+                  <p className="text-gray-600">Loading...</p>
+                </div>
+              }
+            >
+              {isLogin ? (
+                <LoginForm onToggleMode={toggleMode} />
+              ) : (
+                <SignupForm onToggleMode={toggleMode} />
+              )}
+            </React.Suspense>
+          </div>
+        </div>
       </div>
     </div>
   );
