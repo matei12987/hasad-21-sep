@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASAD - Login</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
+        /* Scoped styles for standalone page only */
+        .standalone-page {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
             min-height: 100vh;
@@ -19,9 +14,16 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            margin: 0;
         }
 
-        .login-container {
+        .standalone-page * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .standalone-page .login-container {
             background: white;
             border-radius: 1rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -30,7 +32,7 @@
             max-width: 400px;
         }
 
-        .header {
+.standalone-page .header {
             text-align: center;
             margin-bottom: 2rem;
         }
@@ -46,7 +48,7 @@
             color: #6b7280;
         }
 
-        .form-group {
+.standalone-page .form-group {
             margin-bottom: 1.5rem;
         }
 
@@ -58,11 +60,11 @@
             margin-bottom: 0.5rem;
         }
 
-        .input-container {
+.standalone-page .input-container {
             position: relative;
         }
 
-        .input-container input {
+.standalone-page .input-container input {
             width: 100%;
             padding: 0.75rem 1rem 0.75rem 2.5rem;
             border: 1px solid #d1d5db;
@@ -71,13 +73,13 @@
             transition: all 0.2s;
         }
 
-        .input-container input:focus {
+.standalone-page .input-container input:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .input-icon {
+.standalone-page .input-icon {
             position: absolute;
             inset-inline-start: 0.75rem;
             top: 50%;
@@ -87,7 +89,7 @@
             height: 1.25rem;
         }
 
-        .password-toggle {
+.standalone-page .password-toggle {
             position: absolute;
             inset-inline-end: 0.75rem;
             top: 50%;
@@ -101,23 +103,23 @@
             transition: color 0.2s;
         }
 
-        .password-toggle:hover {
+.standalone-page .password-toggle:hover {
             color: #6b7280;
         }
 
-        .form-row {
+.standalone-page .form-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.5rem;
         }
 
-        .checkbox-container {
+.standalone-page .checkbox-container {
             display: flex;
             align-items: center;
         }
 
-        .checkbox-container input[type="checkbox"] {
+.standalone-page .checkbox-container input[type="checkbox"] {
             width: 1.1rem;
             height: 1.1rem;
             margin-inline-end: 0.75rem;
@@ -130,22 +132,22 @@
             z-index: 1;
         }
 
-        .checkbox-container input[type="checkbox"]:hover {
+.standalone-page .checkbox-container input[type="checkbox"]:hover {
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .checkbox-container input[type="checkbox"]:checked {
+.standalone-page .checkbox-container input[type="checkbox"]:checked {
             background-color: #3b82f6;
             border-color: #3b82f6;
         }
 
-        .checkbox-container input[type="checkbox"]:focus {
+.standalone-page .checkbox-container input[type="checkbox"]:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
 
-        .checkbox-container label {
+.standalone-page .checkbox-container label {
             font-size: 0.875rem;
             color: #6b7280;
             cursor: pointer;
@@ -156,11 +158,11 @@
             z-index: 1;
         }
 
-        .checkbox-container label:hover {
+.standalone-page .checkbox-container label:hover {
             color: #374151;
         }
 
-        .forgot-link {
+.standalone-page .forgot-link {
             font-size: 0.875rem;
             color: #3b82f6;
             text-decoration: none;
@@ -173,17 +175,17 @@
             display: inline-block;
         }
 
-        .forgot-link:hover {
+.standalone-page .forgot-link:hover {
             color: #1d4ed8;
             text-decoration: underline;
         }
 
-        .forgot-link:focus {
+.standalone-page .forgot-link:focus {
             outline: none;
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
         }
 
-        .login-button {
+.standalone-page .login-button {
             width: 100%;
             background: #3b82f6;
             color: white;
@@ -197,29 +199,29 @@
             margin-bottom: 1.5rem;
         }
 
-        .login-button:hover {
+.standalone-page .login-button:hover {
             background: #1d4ed8;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
-        .login-button:active {
+.standalone-page .login-button:active {
             transform: translateY(0);
         }
 
-        .login-button:disabled {
+.standalone-page .login-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
         }
 
-        .signup-text {
+.standalone-page .signup-text {
             text-align: center;
             color: #6b7280;
             font-size: 0.875rem;
         }
 
-        .signup-link {
+.standalone-page .signup-link {
             color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
@@ -231,17 +233,17 @@
             display: inline-block;
         }
 
-        .signup-link:hover {
+.standalone-page .signup-link:hover {
             color: #1d4ed8;
             text-decoration: underline;
         }
 
-        .signup-link:focus {
+.standalone-page .signup-link:focus {
             outline: none;
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
         }
 
-        .error-message {
+.standalone-page .error-message {
             background: #fef2f2;
             border: 1px solid #fecaca;
             color: #dc2626;
@@ -252,7 +254,7 @@
             display: none;
         }
 
-        .success-message {
+.standalone-page .success-message {
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
             color: #16a34a;
@@ -263,66 +265,41 @@
             display: none;
         }
 
+        /* Nested selectors */
+        .standalone-page .header h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .standalone-page .header p {
+            color: #6b7280;
+        }
+
+        .standalone-page .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
         /* Responsive design */
         @media (max-width: 480px) {
-            .login-container {
+            .standalone-page .login-container {
                 padding: 1.5rem;
             }
-            
-            .form-row {
+
+            .standalone-page .form-row {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.75rem;
             }
         }
-
-        /* Force pointer events on interactive elements */
-        a, button, input[type="checkbox"] {
-            pointer-events: auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Ensure form container is above any potential overlays */
-        .login-container {
-            position: relative;
-            z-index: 5;
-        }
-
-        /* Ensure all interactive form elements are clickable */
-        .form-group,
-        .form-row,
-        .checkbox-container,
-        .signup-text {
-            position: relative;
-            z-index: 6;
-        }
-
-        /* Specific z-index for critical interactive elements */
-        .checkbox-container input[type="checkbox"],
-        .checkbox-container label,
-        .forgot-link,
-        .signup-link,
-        .login-button {
-            position: relative;
-            z-index: 10;
-            pointer-events: auto;
-        }
-
-        /* Prevent any pseudo-elements from blocking interactions */
-        *::before,
-        *::after {
-            pointer-events: none;
-        }
-
-        /* Ensure body background doesn't interfere */
-        body::before,
-        body::after {
-            pointer-events: none;
-        }
     </style>
 </head>
-<body>
+<body class="standalone-page">
     <div class="login-container">
         <div class="header">
             <h1>HASAD</h1>

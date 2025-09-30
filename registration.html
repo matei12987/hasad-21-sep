@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASAD - Create Account</title>
     <style>
-        * {
+.standalone-page * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
+.standalone-page {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
             min-height: 100vh;
@@ -21,7 +21,7 @@
             padding: 1rem;
         }
 
-        .registration-container {
+.standalone-page .registration-container {
             background: white;
             border-radius: 1rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -30,7 +30,7 @@
             max-width: 450px;
         }
 
-        .header {
+.standalone-page .header {
             text-align: center;
             margin-bottom: 2rem;
         }
@@ -46,7 +46,7 @@
             color: #6b7280;
         }
 
-        .form-group {
+.standalone-page .form-group {
             margin-bottom: 1.5rem;
         }
 
@@ -58,11 +58,11 @@
             margin-bottom: 0.5rem;
         }
 
-        .input-container {
+.standalone-page .input-container {
             position: relative;
         }
 
-        .input-container input {
+.standalone-page .input-container input {
             width: 100%;
             padding: 0.75rem 1rem 0.75rem 2.5rem;
             border: 1px solid #d1d5db;
@@ -71,13 +71,13 @@
             transition: all 0.2s;
         }
 
-        .input-container input:focus {
+.standalone-page .input-container input:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .input-icon {
+.standalone-page .input-icon {
             position: absolute;
             inset-inline-start: 0.75rem;
             top: 50%;
@@ -87,7 +87,7 @@
             height: 1.25rem;
         }
 
-        .password-toggle {
+.standalone-page .password-toggle {
             position: absolute;
             inset-inline-end: 0.75rem;
             top: 50%;
@@ -101,11 +101,11 @@
             transition: color 0.2s;
         }
 
-        .password-toggle:hover {
+.standalone-page .password-toggle:hover {
             color: #6b7280;
         }
 
-        .register-button {
+.standalone-page .register-button {
             width: 100%;
             background: #3b82f6;
             color: white;
@@ -119,29 +119,29 @@
             margin-bottom: 1.5rem;
         }
 
-        .register-button:hover {
+.standalone-page .register-button:hover {
             background: #1d4ed8;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
-        .register-button:active {
+.standalone-page .register-button:active {
             transform: translateY(0);
         }
 
-        .register-button:disabled {
+.standalone-page .register-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
         }
 
-        .login-text {
+.standalone-page .login-text {
             text-align: center;
             color: #6b7280;
             font-size: 0.875rem;
         }
 
-        .login-link {
+.standalone-page .login-link {
             color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
@@ -150,17 +150,17 @@
             border-radius: 0.25rem;
         }
 
-        .login-link:hover {
+.standalone-page .login-link:hover {
             color: #1d4ed8;
             text-decoration: underline;
         }
 
-        .login-link:focus {
+.standalone-page .login-link:focus {
             outline: none;
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
         }
 
-        .error-message {
+.standalone-page .error-message {
             background: #fef2f2;
             border: 1px solid #fecaca;
             color: #dc2626;
@@ -171,7 +171,7 @@
             display: none;
         }
 
-        .success-message {
+.standalone-page .success-message {
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
             color: #16a34a;
@@ -182,7 +182,7 @@
             display: none;
         }
 
-        .password-strength {
+.standalone-page .password-strength {
             margin-top: 0.5rem;
             font-size: 0.75rem;
         }
@@ -193,13 +193,36 @@
 
         /* Responsive design */
         @media (max-width: 480px) {
-            .registration-container {
+.standalone-page .registration-container {
                 padding: 1.5rem;
             }
         }
+        .standalone-page .strength-weak { color: #dc2626; }
+        .standalone-page .strength-medium { color: #f59e0b; }
+        .standalone-page .strength-strong { color: #16a34a; }
+
+        /* Nested selectors */
+        .standalone-page .header h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .standalone-page .header p {
+            color: #6b7280;
+        }
+
+        .standalone-page .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
-<body>
+<body class="standalone-page">
     <div class="registration-container">
         <div class="header">
             <h1>HASAD</h1>

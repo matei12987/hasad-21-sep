@@ -7,34 +7,14 @@
     <meta name="description" content="HASAD - Bilingual Contact Management System" />
     <title>HASAD - Bilingual Contact Management System</title>
     <style>
-      /* Reset any constraining styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html, body {
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-      }
-
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      /* Ensure root takes full width */
+      /* Minimal reset - no constraints */
       #root {
         width: 100%;
         min-height: 100vh;
-        margin: 0;
-        padding: 0;
       }
 
-      /* Loading fallback */
-      .loading-fallback {
+      /* Loading state */
+      #root .loading-fallback {
         display: flex;
         align-items: center;
         justify-content: center;
