@@ -200,12 +200,6 @@ main {
   flex-direction: row-reverse;
 }
 
-/* Prevent element repositioning */
-.preserve-position {
-  position: relative !important;
-  inset-inline-start: auto !important;
-  inset-inline-end: auto !important;
-}
 
 /* Icon flipping for RTL (for directional icons like trucks, arrows) */
 [dir="rtl"] .rtl-scale-x-flip-rtl {
