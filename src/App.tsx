@@ -203,7 +203,7 @@ function AppContent() {
 
 function App() {
   return (
-    <div id="app-root" dir="ltr" className="min-h-screen w-screen">
+    <div id="app-root" dir="ltr" className="min-h-svh w-full">
       <SettingsProvider>
         <AuthProvider>
           <CartProvider>
