@@ -26,8 +26,7 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8"
-      style={{ background: 'linear-gradient(135deg, #4a7c59 0%, #6b9b7a 100%)' }}
+      className="min-h-screen w-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 bg-[linear-gradient(135deg,#4a7c59_0%,#6b9b7a_100%)]"
     >
       <div className="w-full max-w-4xl mx-auto">
         {/* Logo */}
@@ -42,7 +41,7 @@ export const LoginScreen: React.FC = () => {
         {/* Login Form */}
         <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl">
           <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900">Welcome Back</h2>
+          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900 break-words overflow-hidden">Welcome Back</h2>
 
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">

@@ -104,7 +104,7 @@ function AppContent() {
 
   if (!user) {
     return (
-      <div className="app-container">
+      <div dir="ltr" className="app-container">
         <Routes>
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="*" element={<LoginScreen />} />
@@ -165,7 +165,7 @@ function AppContent() {
   };
 
   return (
-    <div className="app-container">
+    <div dir="ltr" className="app-container">
       <div className="screen-content">
         {/* Admin Dashboard Toggle for Demo */}
         {isAdmin && !showAdminDashboard && (
@@ -207,18 +207,16 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <Router>
-            <div className="preserve-position">
-              <AppContent />
-              {/* Development Tools - Only in DEV mode */}
-              {import.meta.env.DEV && (
-                <>
-                  <I18nDevTools show={true} />
-                  <MissingKeyOverlay />
-                  <RTLTestSuite />
-                  <I18nStorybook />
-                </>
-              )}
-            </div>
+            <AppContent />
+            {/* Development Tools - Only in DEV mode */}
+            {import.meta.env.DEV && (
+              <>
+                <I18nDevTools show={true} />
+                <MissingKeyOverlay />
+                <RTLTestSuite />
+                <I18nStorybook />
+              </>
+            )}
           </Router>
         </CartProvider>
       </AuthProvider>
