@@ -18,11 +18,6 @@ html, body, #root {
   padding: 0;
 }
 
-/* Prevent any stray overflow causing a left/right gutter */
-html, body {
-  overflow-x: hidden;
-}
-
 /* Ensure consistent text alignment */
 [dir='rtl'] {
   text-align: start;
@@ -205,6 +200,12 @@ main {
   flex-direction: row-reverse;
 }
 
+/* Prevent element repositioning */
+.preserve-position {
+  position: relative !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+}
 
 /* Icon flipping for RTL (for directional icons like trucks, arrows) */
 [dir="rtl"] .rtl-scale-x-flip-rtl {
@@ -316,32 +317,4 @@ main {
 
 .widget-card .text-end {
   text-align: end;
-}
-/* HARD overrides for SPA shell layout - prevent any wrapper constraints */
-html, body, #root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  overflow-x: hidden; /* prevent scrollbar-gap gutters */
-}
-
-/* Force neutral layout on app wrappers */
-.app-container,
-.preserve-position {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  contain: none !important;
-  transform: none !important;
-}
-
-/* Ensure body has no forced background */
-body {
-  background: transparent !important;
 }

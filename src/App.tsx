@@ -104,7 +104,7 @@ function AppContent() {
 
   if (!user) {
     return (
-      <div dir="ltr" className="app-container">
+      <div className="app-container">
         <Routes>
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="*" element={<LoginScreen />} />
@@ -165,7 +165,7 @@ function AppContent() {
   };
 
   return (
-    <div dir="ltr" className="app-container">
+    <div className="app-container">
       <div className="screen-content">
         {/* Admin Dashboard Toggle for Demo */}
         {isAdmin && !showAdminDashboard && (
@@ -203,11 +203,11 @@ function AppContent() {
 
 function App() {
   return (
-    <div id="app-root" dir="ltr" className="min-h-svh w-full">
-      <SettingsProvider>
-        <AuthProvider>
-          <CartProvider>
-            <Router>
+    <SettingsProvider>
+      <AuthProvider>
+        <CartProvider>
+          <Router>
+            <div className="preserve-position">
               <AppContent />
               {/* Development Tools - Only in DEV mode */}
               {import.meta.env.DEV && (
@@ -218,11 +218,11 @@ function App() {
                   <I18nStorybook />
                 </>
               )}
-            </Router>
-          </CartProvider>
-        </AuthProvider>
-      </SettingsProvider>
-    </div>
+            </div>
+          </Router>
+        </CartProvider>
+      </AuthProvider>
+    </SettingsProvider>
   );
 }
 

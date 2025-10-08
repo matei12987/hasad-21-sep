@@ -26,9 +26,10 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <div
-      className="min-h-svh w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-[linear-gradient(135deg,#4a7c59_0%,#6b9b7a_100%)]"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8"
+      style={{ background: 'linear-gradient(135deg, #4a7c59 0%, #6b9b7a 100%)' }}
     >
-      <div className="w-full max-w-5xl mx-auto">
+      <div className="w-full max-w-4xl mx-auto">
         {/* Logo */}
         <div className="text-center mb-6 lg:mb-12">
           <div className="w-16 h-16 lg:w-32 lg:h-32 mx-auto mb-3 lg:mb-6 bg-white rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-2xl">
@@ -39,9 +40,9 @@ export const LoginScreen: React.FC = () => {
         </div>
 
         {/* Login Form */}
-        <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl mx-auto max-w-3xl">
+        <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl">
           <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900 break-words text-balance">Welcome Back</h2>
+          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900">Welcome Back</h2>
 
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
@@ -64,7 +65,7 @@ export const LoginScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">🛒</div>
-                  <div className="text-base lg:text-xl font-medium">Market</div>
+                  <div className="text-base lg:text-xl font-medium">Consumer</div>
                 </button>
                 <button
                   type="button"
@@ -122,7 +123,7 @@ export const LoginScreen: React.FC = () => {
         </div>
 
         {/* Demo Credentials */}
-        <div className="mt-6 lg:mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/20 mx-auto max-w-3xl">
+        <div className="mt-6 lg:mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/20">
           <p className="text-white text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Demo Credentials:</p>
           <p className="text-green-100 text-xs lg:text-base">Email: demo@hasad.com</p>
           <p className="text-green-100 text-xs lg:text-base">Password: demo123</p>
