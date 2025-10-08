@@ -67,7 +67,7 @@ const resources = {
       chooseFile: 'Choose File',
 
       // Contact types
-      consumer: 'Market',
+      consumer: 'Consumer',
       institutional: 'Institutional',
       corporate: 'Corporate',
 
@@ -142,7 +142,7 @@ const resources = {
       smsNotifications: 'SMS Notifications',
       receiveSmsNotifications: 'Receive SMS notifications',
       appStatus: 'App Status',
-      consumer: 'Market',
+      consumer: 'Consumer',
       farmer: 'Farmer',
       enabled: 'Enabled',
       disabled: 'Disabled',
@@ -684,7 +684,7 @@ const resources = {
       chooseFile: 'اختيار ملف',
 
       // Contact types
-      consumer: 'سوق',
+      consumer: 'مستهلك',
       institutional: 'مؤسسي',
       corporate: 'شركات',
 
@@ -774,7 +774,7 @@ const resources = {
       smsNotifications: 'إشعارات الرسائل النصية',
       receiveSmsNotifications: 'تلقي إشعارات الرسائل النصية',
       appStatus: 'حالة التطبيق',
-      consumer: 'سوق',
+      consumer: 'مستهلك',
       farmer: 'مزارع',
       enabled: 'مفعل',
       disabled: 'معطل',
