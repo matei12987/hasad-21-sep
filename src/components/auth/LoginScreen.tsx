@@ -64,7 +64,7 @@ export const LoginScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">🛒</div>
-                  <div className="text-base lg:text-xl font-medium">Consumer</div>
+                  <div className="text-base lg:text-xl font-medium">Market</div>
                 </button>
                 <button
                   type="button"
