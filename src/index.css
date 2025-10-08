@@ -317,3 +317,31 @@ main {
 .widget-card .text-end {
   text-align: end;
 }
+/* HARD overrides for SPA shell layout - prevent any wrapper constraints */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden; /* prevent scrollbar-gap gutters */
+}
+
+/* Force neutral layout on app wrappers */
+.app-container,
+.preserve-position {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  contain: none !important;
+  transform: none !important;
+}
+
+/* Ensure body has no forced background */
+body {
+  background: transparent !important;
+}
