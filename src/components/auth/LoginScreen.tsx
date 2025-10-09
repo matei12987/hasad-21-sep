@@ -76,7 +76,7 @@ export const LoginScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">👨‍🌾</div>
-                  <div className="text-base lg:text-xl font-medium">Farmer</div>
+                  <div className="text-base lg:text-xl font-medium">Farming</div>
                 </button>
               </div>
             </div>
