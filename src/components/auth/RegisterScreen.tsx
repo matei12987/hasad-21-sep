@@ -79,7 +79,7 @@ export const RegisterScreen: React.FC = () => {
           <form onSubmit={handleRegister}>
             {/* User Type Selection */}
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">I am a:</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Go to:</label>
               <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 <button
                   type="button"
@@ -91,7 +91,7 @@ export const RegisterScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">🛒</div>
-                  <div className="text-base lg:text-xl font-medium">Consumer</div>
+                  <div className="text-base lg:text-xl font-medium">HASAD Market</div>
                 </button>
                 <button
                   type="button"
