@@ -1346,7 +1346,7 @@ const resources = {
       housingType: 'نوع السكن',
       rentalSingles: 'إيجار - عزاب',
       rentalFamilies: 'إيجار - عوائل',
-      ownedProperty: 'ملك',
+      ownedProperty: 'تمليك',
       rental: 'إيجار',
       ownershipStatus: 'حالة الملكية',
       roofPhoto: 'صورة السطح',
