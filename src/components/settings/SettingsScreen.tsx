@@ -19,7 +19,9 @@ import {
   Shield,
   CheckCircle,
   AlertCircle,
+  Sprout,
 } from 'lucide-react';
+import { FarmList } from '../farm/FarmList';
 
 interface SettingsScreenProps {
   onBack: () => void;
@@ -40,6 +42,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
   const { user } = useAuth();
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [showCurrencyModal, setShowCurrencyModal] = useState(false);
+  const [showFarmManagement, setShowFarmManagement] = useState(false);
 
   const languages = [
     { code: 'ar', name: 'العربية', nameEn: 'Arabic', flag: '🇸🇦' },
@@ -184,6 +187,35 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
             </div>
           </div>
         </div>
+
+        {/* Farm Management Section - Only for Farmers */}
+        {user?.type === 'farmer' && (
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <button
+              onClick={() => setShowFarmManagement(!showFarmManagement)}
+              className="w-full bg-gradient-to-r from-green-600 to-green-700 px-6 py-4 flex items-center justify-between hover:from-green-700 hover:to-green-800 transition-all"
+            >
+              <div className="flex items-center gap-3">
+                <Sprout className="w-6 h-6 text-white" />
+                <div className="text-start">
+                  <h3 className="text-lg font-semibold text-white">{t('farmManagement')}</h3>
+                  <p className="text-sm text-green-50">{t('manageFarms')}</p>
+                </div>
+              </div>
+              <ChevronRight
+                className={`w-5 h-5 text-white transition-transform ${
+                  showFarmManagement ? 'rotate-90' : ''
+                }`}
+              />
+            </button>
+
+            {showFarmManagement && (
+              <div className="p-6 border-t border-gray-200">
+                <FarmList userId={user.id} />
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Settings Sections */}
         {settingsSections.map((section, sectionIndex) => (

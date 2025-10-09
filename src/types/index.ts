@@ -452,3 +452,21 @@ export interface UserPreferences {
     analytics_tracking: boolean;
   };
 }
+
+export interface Farm {
+  farm_id?: string;
+  user_id: string;
+  farm_name: string;
+  farm_email: string;
+  farm_mobile: string;
+  roof_area: number;
+  location: string;
+  housing_type: 'rental_singles' | 'rental_families' | 'owned';
+  ownership_status: 'owned' | 'rental';
+  roof_photo_url?: string;
+  desired_crop_types: string[];
+  available_budget: number;
+  status?: 'pending' | 'active' | 'inactive';
+  created_at?: string;
+  updated_at?: string;
+}
