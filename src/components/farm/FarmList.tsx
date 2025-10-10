@@ -104,6 +104,15 @@ export const FarmList: React.FC<FarmListProps> = ({ userId }) => {
     return cropMap[cropType] || cropType;
   };
 
+  const getHousingTypeLabel = (housingType: string) => {
+    const housingMap: Record<string, string> = {
+      rental_singles: t('rentalSingles'),
+      rental_families: t('rentalFamilies'),
+      owned: t('ownedProperty'),
+    };
+    return housingMap[housingType] || housingType;
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center p-12">
@@ -203,8 +212,7 @@ export const FarmList: React.FC<FarmListProps> = ({ userId }) => {
                   <div className="flex items-center gap-3 text-sm text-gray-700">
                     <Home className="w-4 h-4 text-gray-400" />
                     <span>
-                      {farm.roof_area} {t('roofAreaUnit')} •{' '}
-                      {farm.ownership_status === 'owned' ? t('owned') : t('rental')}
+                      {farm.roof_area} {t('roofAreaUnit')} • {getHousingTypeLabel(farm.housing_type)}
                     </span>
                   </div>
 

@@ -63,10 +63,14 @@ export const FarmRegistrationForm: React.FC<FarmRegistrationFormProps> = ({
     { value: 'owned', label: t('ownedProperty') },
   ];
 
-  const ownershipStatuses = [
-    { value: 'rental', label: t('rental') },
-    { value: 'owned', label: t('owned') },
-  ];
+  const handleHousingTypeChange = (housingType: Farm['housing_type']) => {
+    const ownershipStatus = housingType === 'owned' ? 'owned' : 'rental';
+    setFormData({
+      ...formData,
+      housing_type: housingType,
+      ownership_status: ownershipStatus,
+    });
+  };
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -383,17 +387,13 @@ export const FarmRegistrationForm: React.FC<FarmRegistrationFormProps> = ({
               <label className="block text-sm font-medium text-gray-700 mb-3">
                 {t('housingType')} *
               </label>
+              <p className="text-sm text-gray-600 mb-3">{t('housingTypeDescription')}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {housingTypes.map((type) => (
                   <button
                     key={type.value}
                     type="button"
-                    onClick={() =>
-                      setFormData({
-                        ...formData,
-                        housing_type: type.value as Farm['housing_type'],
-                      })
-                    }
+                    onClick={() => handleHousingTypeChange(type.value as Farm['housing_type'])}
                     className={`p-4 border-2 rounded-lg text-sm font-medium transition-all ${
                       formData.housing_type === type.value
                         ? 'border-green-500 bg-green-50 text-green-900'
@@ -401,33 +401,6 @@ export const FarmRegistrationForm: React.FC<FarmRegistrationFormProps> = ({
                     }`}
                   >
                     {type.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                {t('ownershipStatus')} *
-              </label>
-              <div className="grid grid-cols-2 gap-3">
-                {ownershipStatuses.map((status) => (
-                  <button
-                    key={status.value}
-                    type="button"
-                    onClick={() =>
-                      setFormData({
-                        ...formData,
-                        ownership_status: status.value as Farm['ownership_status'],
-                      })
-                    }
-                    className={`p-4 border-2 rounded-lg text-sm font-medium transition-all ${
-                      formData.ownership_status === status.value
-                        ? 'border-green-500 bg-green-50 text-green-900'
-                        : 'border-gray-200 hover:border-gray-300 text-gray-700'
-                    }`}
-                  >
-                    {status.label}
                   </button>
                 ))}
               </div>
