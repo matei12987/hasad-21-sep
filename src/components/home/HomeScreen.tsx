@@ -351,7 +351,7 @@ export const HomeScreen: React.FC = () => {
                 farmer: t('sunnyOrganicFarm'),
               },
               {
-                name: 'fresh cucumber',
+                name: 'cucumber',
                 price: 12.99,
                 unit: t('kg'),
                 image: cucumberImg,
