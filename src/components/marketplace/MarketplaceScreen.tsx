@@ -64,9 +64,9 @@ export const MarketplaceScreen: React.FC = () => {
     },
     {
       id: '3',
-      name: 'sweetCorn',
+      name: 'cucumber',
       price: 2.99,
-      image: '🌽',
+      image: '🥒',
       farmer: 'Harvest Hills',
       category: 'vegetables',
       unit: 'lb',
