@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">حصاد - HASAD</h1>
-              <p className="text-xs text-blue-100">{t('manageContacts')}</p>
+              <p className="text-xs text-blue-100">{t('appSlogan')}</p>
             </div>
           </div>
 

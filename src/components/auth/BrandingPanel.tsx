@@ -40,7 +40,7 @@ export const BrandingPanel: React.FC = () => {
             <Leaf className="w-12 h-12 text-green-600" strokeWidth={2.5} />
           </div>
           <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">HASAD</h1>
-          <p className="text-xl text-green-50 font-medium">Smart Farming at Your Fingertips</p>
+          <p className="text-xl text-green-50 font-medium">{t('appSlogan')}</p>
         </div>
 
         {/* Feature Highlights */}

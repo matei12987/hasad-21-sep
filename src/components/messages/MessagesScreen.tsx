@@ -168,9 +168,7 @@ export const MessagesScreen: React.FC = () => {
       {/* Header */}
       <div className="mb-6">
         <h1 className="heading-lg mb-2">Messages 💬</h1>
-        <p className="body-md text-gray-600">
-          {user?.type === 'farmer' ? 'Chat with your customers' : 'Chat with farmers'}
-        </p>
+        <p className="body-md text-gray-600">{t('appSlogan')}</p>
       </div>
 
       {/* Search */}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const AddProductScreen: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     category: 'vegetables',
@@ -58,7 +60,7 @@ export const AddProductScreen: React.FC = () => {
       {/* Header */}
       <div className="mb-6">
         <h1 className="heading-lg mb-2">Add New Product ➕</h1>
-        <p className="body-md text-gray-600">List your fresh produce for sale</p>
+        <p className="body-md text-gray-600">{t('appSlogan')}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">

@@ -13,7 +13,10 @@ export const AdminHeader: React.FC = () => {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <Shield className="w-6 h-6 text-blue-600" />
-            <h1 className="text-xl font-bold text-gray-900">{t('hasadAdminPanel')}</h1>
+            <div>
+              <h1 className="text-xl font-bold text-gray-900">{t('hasadAdminPanel')}</h1>
+              <p className="text-xs text-gray-600">{t('appSlogan')}</p>
+            </div>
           </div>
           <div className="flex items-center gap-1 px-2 py-1 bg-blue-50 border border-blue-200 rounded-full">
             <Eye className="w-3 h-3 text-blue-600" />

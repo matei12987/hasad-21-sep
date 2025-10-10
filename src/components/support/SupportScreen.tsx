@@ -96,7 +96,10 @@ export const SupportScreen: React.FC<SupportScreenProps> = ({ onBack }) => {
               >
                 <ArrowLeft className="w-5 h-5 text-gray-700" />
               </button>
-              <h1 className="text-xl font-bold text-gray-900">{t('helpAndSupport')}</h1>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">{t('helpAndSupport')}</h1>
+                <p className="text-xs text-gray-600">{t('appSlogan')}</p>
+              </div>
             </div>
           </div>
         </div>

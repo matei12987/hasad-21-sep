@@ -257,9 +257,7 @@ export const HomeScreen: React.FC = () => {
             <h1 className="heading-lg">
               {t('goodMorning')}, {user?.name?.split(' ')[0]}! 👋
             </h1>
-            <p className="body-md text-gray-600">
-              {user?.type === 'farmer' ? t('manageFarmEfficiently') : t('discoverFreshProduce')}
-            </p>
+            <p className="body-md text-gray-600">{t('appSlogan')}</p>
           </div>
           <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
             <span className="text-xl">{user?.avatar}</span>

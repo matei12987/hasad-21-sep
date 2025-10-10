@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const FarmerDashboard: React.FC = () => {
+  const { t } = useTranslation();
   const crops = [
     {
       id: '1',
@@ -70,7 +72,7 @@ export const FarmerDashboard: React.FC = () => {
       {/* Header */}
       <div className="mb-6">
         <h1 className="heading-lg mb-2">Farm Dashboard 📊</h1>
-        <p className="body-md text-gray-600">Monitor your farm's performance</p>
+        <p className="body-md text-gray-600">{t('appSlogan')}</p>
       </div>
 
       {/* Stats Overview */}

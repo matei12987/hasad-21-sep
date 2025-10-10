@@ -117,9 +117,7 @@ export const OrdersScreen: React.FC = () => {
         <h1 className="heading-lg mb-2">
           {user?.type === 'farmer' ? 'Customer Orders' : 'My Orders'} 📦
         </h1>
-        <p className="body-md text-gray-600">
-          {user?.type === 'farmer' ? 'Manage your customer orders' : 'Track your purchases'}
-        </p>
+        <p className="body-md text-gray-600">{t('appSlogan')}</p>
       </div>
 
       {/* Tabs */}

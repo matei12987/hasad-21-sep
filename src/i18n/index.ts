@@ -5,6 +5,9 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
+      // App branding
+      appSlogan: 'Your smart farm in your hands',
+
       // Authentication
       login: 'Login',
       signup: 'Sign Up',
@@ -689,6 +692,9 @@ const resources = {
   },
   ar: {
     translation: {
+      // App branding
+      appSlogan: 'مزرعتك الذكية بين يديك',
+
       // Authentication
       login: 'تسجيل الدخول',
       signup: 'إنشاء حساب',

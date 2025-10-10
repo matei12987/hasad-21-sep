@@ -133,7 +133,8 @@ export const MarketplaceScreen: React.FC = () => {
     <div className="p-4" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <div className="bg-white rounded-xl shadow-lg p-4 mb-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">{t('hasadMarketplace')}</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-2">{t('hasadMarketplace')}</h2>
+        <p className="text-sm text-gray-600 mb-4">{t('appSlogan')}</p>
 
         {/* Search Bar */}
         <div className="relative mb-4">

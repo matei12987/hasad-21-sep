@@ -24,7 +24,10 @@ export const CartScreen: React.FC = () => {
   if (items.length === 0) {
     return (
       <div className="p-4" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
-        <h1 className="heading-lg mb-6">{t('shoppingCart')} 🛍️</h1>
+        <div className="mb-6">
+          <h1 className="heading-lg mb-2">{t('shoppingCart')} 🛍️</h1>
+          <p className="body-md text-gray-600">{t('appSlogan')}</p>
+        </div>
         <div className="text-center py-12">
           <div className="text-6xl mb-4">🛒</div>
           <h3 className="heading-md mb-2">{t('cartEmpty')}</h3>
@@ -41,7 +44,10 @@ export const CartScreen: React.FC = () => {
     <div className="p-4" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h1 className="heading-lg">{t('shoppingCart')} 🛍️</h1>
+        <div>
+          <h1 className="heading-lg mb-1">{t('shoppingCart')} 🛍️</h1>
+          <p className="text-sm text-gray-600">{t('appSlogan')}</p>
+        </div>
         <button
           onClick={clearCart}
           className="btn btn-outline btn-sm"

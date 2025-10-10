@@ -163,7 +163,10 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
             >
               <ArrowLeft className="w-5 h-5 text-gray-700" />
             </button>
-            <h1 className="text-xl font-bold text-gray-900">{t('settings')}</h1>
+            <div>
+              <h1 className="text-xl font-bold text-gray-900">{t('settings')}</h1>
+              <p className="text-xs text-gray-600">{t('appSlogan')}</p>
+            </div>
           </div>
         </div>
       </div>

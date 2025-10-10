@@ -76,7 +76,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigateToSettin
       {/* Header */}
       <div className="mb-6">
         <h1 className="heading-lg mb-2">{t('profile')} 👤</h1>
-        <p className="body-md text-gray-600">{t('manageYourAccount')}</p>
+        <p className="body-md text-gray-600">{t('appSlogan')}</p>
       </div>
 
       {/* Profile Card */}
