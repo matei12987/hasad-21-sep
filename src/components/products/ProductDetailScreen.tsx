@@ -143,12 +143,12 @@ export const ProductDetailScreen: React.FC<ProductDetailScreenProps> = ({ produc
             </div>
             <div className="flex-1">
               <h3 className="heading-sm">{product.farmer}</h3>
-              <p className="body-sm text-gray-600">Organic Farm • 5.2 miles away</p>
+              <p className="body-sm text-gray-600">Hydroponic Farm • 5.2 miles away</p>
             </div>
             <button className="btn btn-outline btn-sm">Visit Farm</button>
           </div>
           <p className="body-sm text-gray-600">
-            Family-owned organic farm specializing in fresh vegetables and herbs. Committed to
+            Family-owned hydroponic farm specializing in fresh vegetables and herbs. Committed to
             sustainable farming practices.
           </p>
         </div>

@@ -94,7 +94,7 @@ export const AddProductScreen: React.FC = () => {
             value={formData.name}
             onChange={handleInputChange}
             className="form-input"
-            placeholder="e.g., Fresh Organic Lettuce"
+            placeholder="e.g., Fresh Hydroponic Lettuce"
             required
           />
         </div>

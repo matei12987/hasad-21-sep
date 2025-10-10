@@ -52,7 +52,7 @@ export const FarmerDashboard: React.FC = () => {
     {
       id: '#1235',
       customer: 'Mike Chen',
-      product: 'Organic Tomatoes',
+      product: 'Hydroponic Tomatoes',
       quantity: '3 lbs',
       status: 'Shipped',
       amount: '$13.50',

@@ -12,7 +12,7 @@ export const OrdersScreen: React.FC = () => {
       farmer: 'Green Valley Farm',
       items: [
         { name: 'Fresh Lettuce', quantity: 2, price: 3.99, image: '🥬' },
-        { name: 'Organic Tomatoes', quantity: 1, price: 4.5, image: '🍅' },
+        { name: 'Hydroponic Tomatoes', quantity: 1, price: 4.5, image: '🍅' },
       ],
       status: 'Delivered',
       total: 12.48,
@@ -33,7 +33,7 @@ export const OrdersScreen: React.FC = () => {
       farmer: 'Harvest Hills',
       items: [
         { name: 'Fresh Apples', quantity: 2, price: 3.25, image: '🍎' },
-        { name: 'Organic Carrots', quantity: 1, price: 2.75, image: '🥕' },
+        { name: 'Hydroponic Carrots', quantity: 1, price: 2.75, image: '🥕' },
       ],
       status: 'Processing',
       total: 9.25,
@@ -57,7 +57,7 @@ export const OrdersScreen: React.FC = () => {
       date: '2024-01-14',
       customer: 'Mike Chen',
       customerAvatar: '👨‍💻',
-      items: [{ name: 'Organic Tomatoes', quantity: 3, price: 4.5, image: '🍅' }],
+      items: [{ name: 'Hydroponic Tomatoes', quantity: 3, price: 4.5, image: '🍅' }],
       status: 'Shipped',
       total: 13.5,
       deliveryDate: '2024-01-17',

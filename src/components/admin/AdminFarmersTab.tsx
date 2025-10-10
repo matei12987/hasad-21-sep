@@ -51,7 +51,7 @@ export const AdminFarmersTab: React.FC<AdminFarmersTabProps> = ({ onUserSelect }
           verified: true,
           farmName: 'Green Valley Hydroponics',
           farmType: 'hydroponic',
-          certifications: ['Organic', 'HACCP'],
+          certifications: ['Hydroponic', 'HACCP'],
         },
         deviceStatus: {
           online: 11,
@@ -77,7 +77,7 @@ export const AdminFarmersTab: React.FC<AdminFarmersTabProps> = ({ onUserSelect }
       {
         id: '2',
         name: 'Fatima Al-Zahra',
-        email: 'fatima.zahra@organicfarm.sa',
+        email: 'fatima.zahra@hydroponicfarm.sa',
         role: 'farmer',
         status: 'active',
         location: 'Jeddah, Saudi Arabia',
@@ -96,9 +96,9 @@ export const AdminFarmersTab: React.FC<AdminFarmersTabProps> = ({ onUserSelect }
           phone: '+966509876543',
           avatar: null,
           verified: true,
-          farmName: 'Sunny Organic Farm',
-          farmType: 'organic',
-          certifications: ['Organic', 'Fair Trade', 'GlobalGAP'],
+          farmName: 'Sunny Hydroponic Farm',
+          farmType: 'hydroponic',
+          certifications: ['Hydroponic', 'Fair Trade', 'GlobalGAP'],
         },
         deviceStatus: {
           online: 8,

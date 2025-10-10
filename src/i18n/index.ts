@@ -76,10 +76,10 @@ const resources = {
 
       // Product names for activity details
       freshLettuce: 'Fresh Lettuce',
-      organicTomatoes: 'Organic Tomatoes',
+      organicTomatoes: 'Hydroponic Tomatoes',
       sweetCorn: 'Sweet Corn',
       freshApples: 'Fresh Apples',
-      organicCarrots: 'Organic Carrots',
+      organicCarrots: 'Hydroponic Carrots',
       cherryTomatoes: 'Cherry Tomatoes',
       freshBasil: 'Fresh Basil',
 
@@ -240,7 +240,7 @@ const resources = {
       
       // Farm names
       greenValleyHydroponics: 'Green Valley Hydroponics',
-      sunnyOrganicFarm: 'Sunny Organic Farm',
+      sunnyOrganicFarm: 'Sunny Hydroponic Farm',
       berryFreshFarms: 'Berry Fresh Farms',
       
       // Certifications
@@ -284,14 +284,14 @@ const resources = {
       thisMonth: 'This Month',
       featuredProducts: 'Featured Products',
       freshLettuce: 'Fresh Lettuce',
-      organicTomatoes: 'Organic Tomatoes',
+      organicTomatoes: 'Hydroponic Tomatoes',
       sweetCorn: 'Sweet Corn',
       freshApples: 'Fresh Apples',
-      organicCarrots: 'Organic Carrots',
+      organicCarrots: 'Hydroponic Carrots',
       cherryTomatoes: 'Cherry Tomatoes',
       freshBasil: 'Fresh Basil',
       greenValleyFarm: 'Green Valley Farm',
-      sunnyOrganicFarm: 'Sunny Organic Farm',
+      sunnyOrganicFarm: 'Sunny Hydroponic Farm',
       harvestHills: 'Harvest Hills',
       recentActivity: 'Recent Activity',
 
@@ -763,16 +763,16 @@ const resources = {
 
       // Product names for activity details
       freshLettuce: 'خس طازج',
-      organicTomatoes: 'طماطم عضوية',
+      organicTomatoes: 'طماطم مائية',
       sweetCorn: 'ذرة حلوة',
       freshApples: 'تفاح طازج',
-      organicCarrots: 'جزر عضوي',
+      organicCarrots: 'جزر مائي',
       cherryTomatoes: 'طماطم كرزية',
       freshBasil: 'ريحان طازج',
 
       // Product catalog specific names
       freshButterheedLettuce: 'خس بوسطن طازج',
-      organicCherryTomatoes: 'طماطم كرزية عضوية',
+      organicCherryTomatoes: 'طماطم كرزية مائية',
       premiumStrawberries: 'فراولة مميزة',
 
       // Profile
@@ -908,7 +908,7 @@ const resources = {
       min: 'الحد الأدنى',
       max: 'الحد الأعلى',
       farmingMethod: 'طريقة الزراعة',
-      hydroponic: 'الزراعة المائية',
+      hydroponic: 'زراعة مائية',
       organic: 'عضوي',
       conventional: 'تقليدي',
       certifications: 'الشهادات',
@@ -945,7 +945,7 @@ const resources = {
       
       // Farm names
       greenValleyHydroponics: 'الوادي الأخضر للزراعة المائية',
-      sunnyOrganicFarm: 'مزرعة صني العضوية',
+      sunnyOrganicFarm: 'مزرعة صني المائية',
       berryFreshFarms: 'مزارع بيري الطازجة',
       
       // Certifications
@@ -989,14 +989,14 @@ const resources = {
       thisMonth: 'هذا الشهر',
       featuredProducts: 'المنتجات المميزة',
       freshLettuce: 'خس طازج',
-      organicTomatoes: 'طماطم عضوية',
+      organicTomatoes: 'طماطم مائية',
       sweetCorn: 'ذرة حلوة',
       freshApples: 'تفاح طازج',
-      organicCarrots: 'جزر عضوي',
+      organicCarrots: 'جزر مائي',
       cherryTomatoes: 'طماطم كرزية',
       freshBasil: 'ريحان طازج',
       greenValleyFarm: 'مزرعة الوادي الأخضر',
-      sunnyOrganicFarm: 'مزرعة صني العضوية',
+      sunnyOrganicFarm: 'مزرعة صني المائية',
       harvestHills: 'تلال الحصاد',
       recentActivity: 'النشاط الأخير',
 

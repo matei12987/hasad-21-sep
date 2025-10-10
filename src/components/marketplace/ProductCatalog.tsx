@@ -48,7 +48,7 @@ export const ProductCatalog: React.FC = () => {
           farm_name: 'greenValleyHydroponics',
           location: 'Riyadh, Saudi Arabia',
           farming_method: 'hydroponic',
-          certifications: ['organic', 'haccp'],
+          certifications: ['hydroponic', 'haccp'],
         },
         seasonality: {
           peak_season: ['winter', 'spring'],
@@ -86,8 +86,8 @@ export const ProductCatalog: React.FC = () => {
         farm_provenance: {
           farm_name: 'sunnyOrganicFarm',
           location: 'Jeddah, Saudi Arabia',
-          farming_method: 'organic',
-          certifications: ['organic', 'fairTrade'],
+          farming_method: 'hydroponic',
+          certifications: ['hydroponic', 'fairTrade'],
         },
         seasonality: {
           peak_season: ['spring', 'summer'],
@@ -149,7 +149,7 @@ export const ProductCatalog: React.FC = () => {
           farm_name: 'berryFreshFarms',
           location: 'Dammam, Saudi Arabia',
           farming_method: 'hydroponic',
-          certifications: ['organic', 'globalGap'],
+          certifications: ['hydroponic', 'globalGap'],
         },
         seasonality: {
           peak_season: ['winter', 'spring'],
@@ -298,9 +298,9 @@ export const ProductCatalog: React.FC = () => {
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-col gap-1">
                   {product.organic_certified && (
-                    <span className="px-2 py-1 bg-green-600 text-white text-xs font-medium rounded-full flex items-center gap-1">
+                    <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full flex items-center gap-1">
                       <Leaf className="w-3 h-3" />
-                      {t('organic')}
+                      {t('hydroponic')}
                     </span>
                   )}
                   <span
@@ -448,7 +448,7 @@ export const ProductCatalog: React.FC = () => {
                 <div className="space-y-2">
                   {[
                     { key: 'hydroponic', label: t('hydroponic') },
-                    { key: 'organic', label: t('organic') },
+                    { key: 'hydroponic', label: t('hydroponic') },
                     { key: 'conventional', label: t('conventional') },
                   ].map(method => (
                     <label key={method.key} className="flex items-center gap-2">
@@ -464,7 +464,7 @@ export const ProductCatalog: React.FC = () => {
                 <h4 className="text-sm font-medium text-gray-700 mb-3">{t('certifications')}</h4>
                 <div className="space-y-2">
                   {[
-                    { key: 'organic', label: t('organic') },
+                    { key: 'hydroponic', label: t('hydroponic') },
                     { key: 'haccp', label: 'HACCP' },
                     { key: 'fairTrade', label: t('fairTrade') },
                     { key: 'globalGap', label: 'GlobalGAP' },

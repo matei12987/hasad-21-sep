@@ -183,7 +183,7 @@ export const HomeScreen: React.FC = () => {
               deliveryDate: '2024-02-12T14:30:00Z',
               items: [
                 { name: 'Fresh Lettuce', quantity: 2, price: 15.98 },
-                { name: 'Organic Tomatoes', quantity: 1, price: 18.5 },
+                { name: 'Hydroponic Tomatoes', quantity: 1, price: 18.5 },
               ],
               totalAmount: 34.48,
               deliveryAddress: '123 King Fahd Road, Riyadh 12345',
@@ -203,7 +203,7 @@ export const HomeScreen: React.FC = () => {
               farmer: {
                 name: 'Sunny Acres',
                 contact: '+966509876543',
-                location: 'Jeddah Organic Farms',
+                location: 'Jeddah Hydroponic Farms',
               },
               orderStatus: 'shipped',
               trackingNumber: 'TRK-789456123',
