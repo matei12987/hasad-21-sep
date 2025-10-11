@@ -152,29 +152,65 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
     <div className="p-4 space-y-6" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'} lang={i18n.language}>
       {/* Site Selector */}
       <div className="bg-white rounded-xl shadow-lg p-4">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-green-600" />
-            {t('farmDashboard')} - {selectedSite.name}
-          </h2>
-          <select
-            value={selectedSite.id}
-            onChange={e => {
-              const site = sites.find(s => s.id === e.target.value);
-              if (site) onSiteChange(site);
-            }}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-          >
-            {sites.map(site => (
-              <option key={site.id} value={site.id}>
-                {site.name}
-              </option>
-            ))}
-          </select>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1rem' }}>
+          {/* Header Row */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1, minWidth: 0 }}>
+              {/* Arabic Title */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <MapPin className="w-5 h-5 text-green-600" style={{ flexShrink: 0 }} />
+                <h2
+                  className="font-bold text-gray-900"
+                  style={{
+                    fontSize: i18n.language === 'ar' ? '1.25rem' : '1.125rem',
+                    lineHeight: '1.4',
+                    letterSpacing: i18n.language === 'ar' ? '0.03em' : '0.01em',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}
+                >
+                  {t('farmDashboard')}
+                </h2>
+              </div>
+
+              {/* Farm Name */}
+              <div
+                className="font-semibold text-gray-800"
+                style={{
+                  fontSize: '1.125rem',
+                  lineHeight: '1.4',
+                  wordBreak: 'break-word',
+                  hyphens: 'auto',
+                  paddingInlineStart: '1.75rem'
+                }}
+              >
+                {selectedSite.name}
+              </div>
+            </div>
+
+            {/* Dropdown Selector */}
+            <select
+              value={selectedSite.id}
+              onChange={e => {
+                const site = sites.find(s => s.id === e.target.value);
+                if (site) onSiteChange(site);
+              }}
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+              style={{ flexShrink: 0, minWidth: 'fit-content' }}
+            >
+              {sites.map(site => (
+                <option key={site.id} value={site.id}>
+                  {site.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        <div className="flex items-center gap-4 text-sm text-gray-600">
-          <span className="flex items-center gap-1">
+        {/* Site Info */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.875rem', color: '#6B7280', flexWrap: 'wrap' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <div
               className={`w-2 h-2 rounded-full ${
                 selectedSite.status === 'active'
@@ -186,8 +222,8 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
             />
             {t(selectedSite.status)}
           </span>
-          <span>{selectedSite.location.address}</span>
-          <span>{selectedSite.size} {t('squareMeters')}</span>
+          <span style={{ whiteSpace: 'nowrap' }}>{selectedSite.location.address}</span>
+          <span style={{ whiteSpace: 'nowrap' }}>{selectedSite.size} {t('squareMeters')}</span>
         </div>
       </div>
 
