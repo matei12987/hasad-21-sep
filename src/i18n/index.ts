@@ -286,6 +286,7 @@ const resources = {
       freshLettuce: 'Fresh Lettuce',
       organicTomatoes: 'Hydroponic Tomatoes',
       sweetCorn: 'Sweet Corn',
+      freshCucumber: 'Fresh Cucumber',
       freshApples: 'Fresh Apples',
       organicCarrots: 'Hydroponic Carrots',
       cherryTomatoes: 'Cherry Tomatoes',
@@ -534,6 +535,7 @@ const resources = {
       yourItems: 'Your items',
       orderHistory: 'Order history',
       chatWithFarmers: 'Chat with farmers',
+      contactUs: 'Contact us',
       yourInsights: 'Your insights',
 
       // Settings specific
@@ -991,6 +993,7 @@ const resources = {
       freshLettuce: 'خس طازج',
       organicTomatoes: 'طماطم مائية',
       sweetCorn: 'ذرة حلوة',
+      freshCucumber: 'خيار طازج',
       freshApples: 'تفاح طازج',
       organicCarrots: 'جزر مائي',
       cherryTomatoes: 'طماطم كرزية',
@@ -1239,6 +1242,7 @@ const resources = {
       yourItems: 'عناصرك',
       orderHistory: 'تاريخ الطلبات',
       chatWithFarmers: 'الدردشة مع المزارعين',
+      contactUs: 'تواصل معنا',
       yourInsights: 'رؤاك التحليلية',
 
       // Settings specific

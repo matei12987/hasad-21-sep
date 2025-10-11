@@ -64,7 +64,7 @@ export const HomeScreen: React.FC = () => {
           { icon: '📦', title: t('plans'), subtitle: t('deliveryPlans'), action: 'subscriptions' },
           { icon: '🛍️', title: t('cart'), subtitle: t('yourItems'), action: 'cart' },
           { icon: '📋', title: t('orders'), subtitle: t('orderHistory'), action: 'orders' },
-          { icon: '💬', title: t('messages'), subtitle: t('chatWithFarmers'), action: 'messages' },
+          { icon: '❓', title: t('helpAndSupport'), subtitle: t('contactUs'), action: 'messages' },
           { icon: '📈', title: t('analytics'), subtitle: t('yourInsights'), action: 'analytics' },
         ];
 
@@ -351,7 +351,7 @@ export const HomeScreen: React.FC = () => {
                 farmer: t('sunnyOrganicFarm'),
               },
               {
-                name: 'sweetCorn',
+                name: 'freshCucumber',
                 price: 12.99,
                 unit: t('kg'),
                 image: cucumberImg,
