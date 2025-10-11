@@ -464,6 +464,88 @@ main {
 * + .toggle-wrapper {
   margin-inline-start: 0.75rem;
 }
+
+/* Subscription Cards RTL Enhancements */
+[dir="rtl"] .subscription-card {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .subscription-card .price-display {
+  direction: ltr;
+  text-align: start;
+  display: inline-block;
+}
+
+/* Ensure proper spacing for Arabic numbers with currency */
+[dir="rtl"] .currency-amount {
+  direction: ltr;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
+
+/* RTL Button Groups */
+[dir="rtl"] .button-group {
+  gap: 0.75rem;
+}
+
+[dir="rtl"] .button-group button {
+  padding: 0.75rem 1.5rem;
+  min-width: fit-content;
+}
+
+/* Product Icon Grid RTL */
+[dir="rtl"] .product-icons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Typography Scale for Arabic */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  letter-spacing: 0.02em;
+}
+
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div {
+  letter-spacing: 0.01em;
+}
+
+/* Consistent spacing scale */
+.spacing-xs { gap: 0.25rem; }
+.spacing-sm { gap: 0.5rem; }
+.spacing-md { gap: 0.75rem; }
+.spacing-lg { gap: 1rem; }
+.spacing-xl { gap: 1.5rem; }
+
+/* Card spacing standardization */
+.card-spacing-inner {
+  padding: 1.25rem;
+}
+
+.card-spacing-section {
+  margin-block-end: 0.75rem;
+}
+
+.card-spacing-element {
+  margin-block-end: 0.5rem;
+}
+
+/* Responsive subscription cards */
+@media (max-width: 640px) {
+  [dir="rtl"] .subscription-card {
+    padding: 1rem;
+  }
+
+  [dir="rtl"] .subscription-card h4 {
+    font-size: 1rem;
+  }
+
+  [dir="rtl"] .subscription-card .price-display {
+    font-size: 1.25rem;
+  }
+}
+
 /* HARD overrides for SPA shell layout - prevent any wrapper constraints */
 html, body, #root {
   width: 100%;
