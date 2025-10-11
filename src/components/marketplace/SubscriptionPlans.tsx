@@ -270,7 +270,7 @@ export const SubscriptionPlans: React.FC = () => {
                       <span className="flex items-center gap-1 break-words">
                         <Truck className="w-4 h-4 rtl:scale-x-flip-rtl" />
                         <span className="break-words">
-                          {t(getDayKey(subscription.delivery_schedule.day_of_week))}s
+                          {t(getDayKey(subscription.delivery_schedule.day_of_week))}
                         </span>
                       </span>
                       <span className="flex items-center gap-1 break-words">
