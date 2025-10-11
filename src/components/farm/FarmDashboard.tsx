@@ -27,8 +27,8 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
   onSiteChange,
   sites,
 }) => {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
   const [sensorData, setSensorData] = useState<SensorData | null>(null);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [metrics, setMetrics] = useState<PerformanceMetrics | null>(null);
