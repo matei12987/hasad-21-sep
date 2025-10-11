@@ -203,7 +203,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
           <div className="flex items-center gap-2">
             <CreditCard className="w-4 h-4 text-gray-500" />
             <span className="text-sm text-gray-600">
-              {t('Payment')} {activity.details.paymentMethod}
+              {t('payment')}: {activity.details.paymentMethod}
             </span>
           </div>
           {activity.details.deliveryNotes && (
@@ -432,7 +432,7 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    Call Customer
+                    {t('callCustomer')}
                   </a>
                 )}
                 {activity.details.farmer?.contact && (
@@ -441,23 +441,23 @@ export const ActivityDetailModal: React.FC<ActivityDetailModalProps> = ({ activi
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    Call Farmer
+                    {t('callFarmer')}
                   </a>
                 )}
                 <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
                   <Package className="w-4 h-4" />
-                  View Order
+                  {t('viewOrder')}
                 </button>
               </>
             ) : (
               <>
                 <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors">
                   <Leaf className="w-4 h-4" />
-                  Manage Crop
+                  {t('manageCrop')}
                 </button>
                 <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors">
                   <Calendar className="w-4 h-4" />
-                  Add Log Entry
+                  {t('addLogEntry')}
                 </button>
               </>
             )}

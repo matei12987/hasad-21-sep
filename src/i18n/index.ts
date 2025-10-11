@@ -310,6 +310,13 @@ const resources = {
       daysAgo_other: '{{count}} days ago',
       hourAgo: '1 hour ago',
 
+      // Activity Detail Actions
+      callCustomer: 'Call Customer',
+      callFarmer: 'Call Farmer',
+      viewOrder: 'View Order',
+      manageCrop: 'Manage Crop',
+      addLogEntry: 'Add Log Entry',
+
       // Subscription Plans
       subscriptionPlans: 'Subscription Plans',
       freshProduceDelivered: 'Fresh produce delivered to your door',
@@ -1016,6 +1023,13 @@ const resources = {
       daysAgo: 'منذ {{count}} يوم',
       daysAgo_other: 'منذ {{count}} أيام',
       hourAgo: 'منذ ساعة واحدة',
+
+      // Activity Detail Actions
+      callCustomer: 'الاتصال بالعميل',
+      callFarmer: 'الاتصال بالمزارع',
+      viewOrder: 'عرض الطلب',
+      manageCrop: 'إدارة المحصول',
+      addLogEntry: 'إضافة سجل',
 
       // Subscription Plans
       subscriptionPlans: 'خطط الاشتراك',
