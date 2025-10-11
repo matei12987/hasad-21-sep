@@ -314,8 +314,155 @@ main {
   text-align: end;
 }
 
-.widget-card .text-end {
-  text-align: end;
+/* RTL-Aware Flexbox Gap Replacements */
+.flex.gap-2 > * + *,
+.flex.gap-3 > * + *,
+.flex.gap-4 > * + * {
+  margin-inline-start: var(--gap-size, 0.5rem);
+}
+
+.flex.gap-2 {
+  --gap-size: 0.5rem;
+}
+
+.flex.gap-3 {
+  --gap-size: 0.75rem;
+}
+
+.flex.gap-4 {
+  --gap-size: 1rem;
+}
+
+/* Remove first child margin to prevent double spacing */
+.flex.gap-2 > *:first-child,
+.flex.gap-3 > *:first-child,
+.flex.gap-4 > *:first-child {
+  margin-inline-start: 0;
+}
+
+/* RTL Flex Container Enhancements */
+[dir="rtl"] .flex.items-center {
+  text-align: start;
+}
+
+[dir="rtl"] .flex.justify-between {
+  gap: 0;
+}
+
+/* Enhanced spacing for Arabic text to prevent cramping */
+[dir="rtl"] .settings-item {
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+}
+
+[dir="rtl"] .flex.items-center.gap-3 > * + * {
+  margin-inline-start: 1rem;
+}
+
+[dir="rtl"] .flex.items-center.gap-4 > * + * {
+  margin-inline-start: 1.25rem;
+}
+
+/* Arabic text expansion buffer - add 25% more space */
+[dir="rtl"] .text-sm,
+[dir="rtl"] .text-base {
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+}
+
+/* Prevent text truncation issues in RTL */
+[dir="rtl"] .truncate {
+  text-overflow: ellipsis;
+  min-width: fit-content;
+}
+
+/* Settings screen specific RTL improvements */
+[dir="rtl"] .settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4rem;
+  padding: 1.5rem;
+}
+
+[dir="rtl"] .settings-label {
+  flex: 1;
+  min-width: 0;
+  padding-inline-end: 1.5rem;
+}
+
+[dir="rtl"] .settings-value {
+  flex-shrink: 0;
+  padding-inline-start: 1rem;
+  min-width: fit-content;
+}
+
+/* Toggle switch wrapper - always LTR */
+.toggle-wrapper {
+  direction: ltr;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+/* Ensure icon spacing in RTL */
+[dir="rtl"] .lucide {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+/* Grid gap replacement for RTL */
+.grid.gap-4 {
+  gap: 0;
+}
+
+.grid.gap-4 > * {
+  margin-block-end: 1rem;
+  margin-inline-end: 1rem;
+}
+
+[dir="rtl"] .grid.gap-4 > * {
+  margin-inline-end: 0;
+  margin-inline-start: 1rem;
+}
+
+/* Remove last row/column margins */
+.grid.gap-4 > *:last-child {
+  margin-block-end: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+}
+
+/* Responsive spacing adjustments for Arabic */
+@media (max-width: 640px) {
+  [dir="rtl"] .flex.gap-3 > * + * {
+    margin-inline-start: 1rem;
+  }
+
+  [dir="rtl"] .flex.gap-4 > * + * {
+    margin-inline-start: 1.25rem;
+  }
+
+  [dir="rtl"] .p-4 {
+    padding: 1.25rem;
+  }
+
+  [dir="rtl"] .p-6 {
+    padding: 1.75rem;
+  }
+}
+
+/* ChevronRight auto-rotate in RTL */
+[dir="rtl"] .lucide-chevron-right {
+  transform: rotate(180deg);
+}
+
+/* Minimum spacing between toggle and text */
+.toggle-wrapper + * {
+  margin-inline-start: 0.75rem;
+}
+
+* + .toggle-wrapper {
+  margin-inline-start: 0.75rem;
 }
 /* HARD overrides for SPA shell layout - prevent any wrapper constraints */
 html, body, #root {

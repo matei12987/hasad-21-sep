@@ -155,11 +155,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 preserve-position">
         <div className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center" style={{ gap: '0.75rem' }}>
             <button
               onClick={onBack}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              aria-label={`${t('switchTo')} ${language.name}`}
+              style={{ marginInlineEnd: '0.5rem' }}
+              aria-label={t('back')}
             >
               <ArrowLeft className="w-5 h-5 text-gray-700" />
             </button>
@@ -174,14 +175,14 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
       <div className="p-4 space-y-6">
         {/* User Profile Section */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+          <div className="flex items-center" style={{ gap: '1rem' }}>
+            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center" style={{ flexShrink: 0 }}>
               <span className="text-2xl text-white">{user?.avatar || '👤'}</span>
             </div>
-            <div className="flex-1">
-              <h2 className="text-lg font-semibold text-gray-900 mb-1">{user?.name}</h2>
-              <p className="text-gray-600 text-sm mb-2">{user?.email}</p>
-              <div className="flex items-center gap-2">
+            <div className="flex-1" style={{ minWidth: 0 }}>
+              <h2 className="text-lg font-semibold text-gray-900" style={{ marginBlockEnd: '0.25rem' }}>{user?.name}</h2>
+              <p className="text-gray-600 text-sm" style={{ marginBlockEnd: '0.5rem' }}>{user?.email}</p>
+              <div className="flex items-center" style={{ gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
                   {user?.type === 'farmer' ? `👨‍🌾 ${t('farmer')}` : `🛒 ${t('consumer')}`}
                 </span>
@@ -196,10 +197,11 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
             <button
               onClick={() => setShowFarmManagement(!showFarmManagement)}
-              className="w-full bg-gradient-to-r from-green-600 to-green-700 px-6 py-4 flex items-center justify-between hover:from-green-700 hover:to-green-800 transition-all"
+              className="w-full bg-gradient-to-r from-green-600 to-green-700 py-4 flex items-center justify-between hover:from-green-700 hover:to-green-800 transition-all"
+              style={{ paddingInlineStart: '1.5rem', paddingInlineEnd: '1.5rem' }}
             >
-              <div className="flex items-center gap-3">
-                <Sprout className="w-6 h-6 text-white" />
+              <div className="flex items-center" style={{ gap: '0.75rem' }}>
+                <Sprout className="w-6 h-6 text-white" style={{ flexShrink: 0 }} />
                 <div className="text-start">
                   <h3 className="text-lg font-semibold text-white">{t('farmManagement')}</h3>
                   <p className="text-sm text-green-50">{t('manageFarms')}</p>
@@ -209,6 +211,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
                 className={`w-5 h-5 text-white transition-transform ${
                   showFarmManagement ? 'rotate-90' : ''
                 }`}
+                style={{ flexShrink: 0, marginInlineStart: '1rem' }}
               />
             </button>
 
@@ -227,9 +230,9 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
             className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
           >
             {/* Section Header */}
-            <div className="bg-gray-50 border-b border-gray-200 px-6 py-4">
-              <div className="flex items-center gap-3">
-                <div className="text-gray-700">{section.icon}</div>
+            <div className="bg-gray-50 border-b border-gray-200 py-4" style={{ paddingInlineStart: '1.5rem', paddingInlineEnd: '1.5rem' }}>
+              <div className="flex items-center" style={{ gap: '0.75rem' }}>
+                <div className="text-gray-700" style={{ flexShrink: 0 }}>{section.icon}</div>
                 <h3 className="text-lg font-semibold text-gray-900">{section.title}</h3>
               </div>
             </div>
@@ -237,17 +240,17 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
             {/* Section Items */}
             <div className="divide-y divide-gray-100">
               {section.items.map((item, itemIndex) => (
-                <div key={item.id} className="p-6 hover:bg-gray-50 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 flex-1 min-w-0">
-                      <div className="text-gray-600">{item.icon}</div>
+                <div key={item.id} className="hover:bg-gray-50 transition-colors" style={{ padding: '1.5rem' }}>
+                  <div className="flex items-center justify-between" style={{ gap: '1rem' }}>
+                    <div className="flex items-center flex-1 min-w-0" style={{ gap: '1rem' }}>
+                      <div className="text-gray-600" style={{ flexShrink: 0 }}>{item.icon}</div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-base font-medium text-gray-900 mb-1">{item.label}</h4>
+                        <h4 className="text-base font-medium text-gray-900" style={{ marginBlockEnd: '0.25rem' }}>{item.label}</h4>
                         <p className="text-sm text-gray-600 break-words">{item.description}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 ml-4">
+                    <div className="flex items-center" style={{ gap: '0.75rem', flexShrink: 0, marginInlineStart: '1rem' }}>
                       {item.toggle ? (
                         <div className="toggle-wrapper" dir="ltr">
                           <button
@@ -268,7 +271,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
                         </div>
                       ) : (
                         <>
-                          <span className="text-sm text-gray-500 font-medium truncate max-w-[100px] flex-shrink-0">
+                          <span className="text-sm text-gray-500 font-medium flex-shrink-0" style={{ maxWidth: '150px', textAlign: 'end' }}>
                             {item.value}
                           </span>
                           <button
@@ -290,71 +293,73 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
 
         {/* Account Information Section - Redesigned with proper contrast */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="bg-blue-600 px-6 py-4">
-            <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-white" />
+          <div className="bg-blue-600 py-4" style={{ paddingInlineStart: '1.5rem', paddingInlineEnd: '1.5rem' }}>
+            <div className="flex items-center" style={{ gap: '0.75rem' }}>
+              <Shield className="w-5 h-5 text-white" style={{ flexShrink: 0 }} />
               <h3 className="text-lg font-semibold text-white">{t('accountInfo')}</h3>
             </div>
           </div>
 
-          <div className="p-6 space-y-4">
-            <div className="flex items-center justify-between py-2">
-              <span className="text-sm font-medium text-gray-700">{t('emailAddress')}</span>
-              <span className="text-sm text-gray-900 font-medium break-all">
-                amrshasanin@gmail.com
-              </span>
-            </div>
+          <div style={{ padding: '1.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div className="flex items-center justify-between" style={{ paddingBlock: '0.5rem', gap: '1rem' }}>
+                <span className="text-sm font-medium text-gray-700" style={{ flex: '0 0 auto' }}>{t('emailAddress')}</span>
+                <span className="text-sm text-gray-900 font-medium" style={{ textAlign: 'end', wordBreak: 'break-all' }}>
+                  amrshasanin@gmail.com
+                </span>
+              </div>
 
-            <div className="flex items-center justify-between py-2">
-              <span className="text-sm font-medium text-gray-700">{t('accountType')}</span>
-              <span className="text-sm text-gray-900 font-medium">{t('consumer')}</span>
-            </div>
+              <div className="flex items-center justify-between" style={{ paddingBlock: '0.5rem', gap: '1rem' }}>
+                <span className="text-sm font-medium text-gray-700" style={{ flex: '0 0 auto' }}>{t('accountType')}</span>
+                <span className="text-sm text-gray-900 font-medium">{t('consumer')}</span>
+              </div>
 
-            <div className="flex items-center justify-between py-2">
-              <span className="text-sm font-medium text-gray-700">{t('preferredCurrency')}</span>
-              <span className="text-sm text-gray-900 font-medium">{t('saudiRiyal')}</span>
-            </div>
+              <div className="flex items-center justify-between" style={{ paddingBlock: '0.5rem', gap: '1rem' }}>
+                <span className="text-sm font-medium text-gray-700" style={{ flex: '0 0 auto' }}>{t('preferredCurrency')}</span>
+                <span className="text-sm text-gray-900 font-medium">{t('saudiRiyal')}</span>
+              </div>
 
-            <div className="flex items-center justify-between py-2">
-              <span className="text-sm font-medium text-gray-700">{t('joinDate')}</span>
-              <span className="text-sm text-gray-900 font-medium">{t('january')} 2024</span>
+              <div className="flex items-center justify-between" style={{ paddingBlock: '0.5rem', gap: '1rem' }}>
+                <span className="text-sm font-medium text-gray-700" style={{ flex: '0 0 auto' }}>{t('joinDate')}</span>
+                <span className="text-sm text-gray-900 font-medium">{t('january')} 2024</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Environment Status Section - New design with proper contrast */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-4">
-            <div className="flex items-center gap-3">
-              <CheckCircle className="w-5 h-5 text-white" />
+          <div className="bg-gradient-to-r from-green-600 to-green-700 py-4" style={{ paddingInlineStart: '1.5rem', paddingInlineEnd: '1.5rem' }}>
+            <div className="flex items-center" style={{ gap: '0.75rem' }}>
+              <CheckCircle className="w-5 h-5 text-white" style={{ flexShrink: 0 }} />
               <h3 className="text-lg font-semibold text-white">{t('appStatus')}</h3>
             </div>
           </div>
 
-          <div className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
-                <CheckCircle className="w-6 h-6 text-green-600" />
-                <div>
+          <div style={{ padding: '1.5rem' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: '1rem' }}>
+              <div className="flex items-center p-4 bg-green-50 rounded-lg border border-green-200" style={{ gap: '0.75rem' }}>
+                <CheckCircle className="w-6 h-6 text-green-600" style={{ flexShrink: 0 }} />
+                <div style={{ minWidth: 0 }}>
                   <p className="text-sm font-semibold text-green-800">{t('connected')}</p>
                   <p className="text-xs text-green-700">{t('serviceRunningNormally')}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <Info className="w-6 h-6 text-blue-600" />
-                <div>
+              <div className="flex items-center p-4 bg-blue-50 rounded-lg border border-blue-200" style={{ gap: '0.75rem' }}>
+                <Info className="w-6 h-6 text-blue-600" style={{ flexShrink: 0 }} />
+                <div style={{ minWidth: 0 }}>
                   <p className="text-sm font-semibold text-blue-800">{t('lastUpdate')}</p>
                   <p className="text-xs text-blue-700">{t('twoMinutesAgo')}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-gray-600 mt-0.5" />
-                <div>
-                  <p className="text-sm font-medium text-gray-800 mb-1">{t('importantNote')}</p>
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200" style={{ marginBlockStart: '1rem' }}>
+              <div className="flex items-start" style={{ gap: '0.75rem' }}>
+                <AlertCircle className="w-5 h-5 text-gray-600" style={{ marginBlockStart: '0.125rem', flexShrink: 0 }} />
+                <div style={{ minWidth: 0 }}>
+                  <p className="text-sm font-medium text-gray-800" style={{ marginBlockEnd: '0.25rem' }}>{t('importantNote')}</p>
                   <p className="text-xs text-gray-700 leading-relaxed">
                     {t('dataProtectionNotice')}
                   </p>
@@ -387,19 +392,20 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
                     changeLanguage(lang.code as 'ar' | 'en');
                     setShowLanguageModal(false);
                   }}
-                  className={`w-full flex items-center gap-4 p-4 rounded-lg border-2 transition-all ${
+                  className={`w-full flex items-center p-4 rounded-lg border-2 transition-all ${
                     i18n.language === lang.code
                       ? 'border-green-500 bg-green-50 text-green-800'
                       : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                   }`}
+                  style={{ gap: '1rem' }}
                 >
-                  <span className="text-2xl">{lang.flag}</span>
-                  <div className="flex-1 text-left">
+                  <span className="text-2xl" style={{ flexShrink: 0 }}>{lang.flag}</span>
+                  <div className="flex-1 text-start" style={{ minWidth: 0 }}>
                     <p className="font-medium">{lang.name}</p>
                     <p className="text-sm text-gray-600">{lang.nameEn}</p>
                   </div>
                   {i18n.language === lang.code && (
-                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <CheckCircle className="w-5 h-5 text-green-600" style={{ flexShrink: 0 }} />
                   )}
                 </button>
               ))}
@@ -433,21 +439,22 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onBack }) => {
                     changeCurrency(curr);
                     setShowCurrencyModal(false);
                   }}
-                  className={`w-full flex items-center gap-4 p-4 rounded-lg border-2 transition-all ${
+                  className={`w-full flex items-center p-4 rounded-lg border-2 transition-all ${
                     currency.code === curr.code
                       ? 'border-green-500 bg-green-50 text-green-800'
                       : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                   }`}
+                  style={{ gap: '1rem' }}
                 >
-                  <span className="text-2xl">{curr.flag}</span>
-                  <div className="flex-1 text-left">
+                  <span className="text-2xl" style={{ flexShrink: 0 }}>{curr.flag}</span>
+                  <div className="flex-1 text-start" style={{ minWidth: 0 }}>
                     <p className="font-medium">{t(i18n.language === 'ar' ? curr.nameAr : curr.name)}</p>
                     <p className="text-sm text-gray-600">
                       {curr.symbol} {curr.code}
                     </p>
                   </div>
                   {currency.code === curr.code && (
-                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <CheckCircle className="w-5 h-5 text-green-600" style={{ flexShrink: 0 }} />
                   )}
                 </button>
               ))}
