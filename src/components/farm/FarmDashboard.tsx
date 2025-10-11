@@ -229,20 +229,39 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
           {t('realTimeMonitoring')}
         </h3>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
+            alignItems: 'stretch'
+          }}
+          className="monitoring-grid"
+        >
           {sensorData && (
             <>
-              <div className="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-red-50 to-orange-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Thermometer className="w-5 h-5 text-red-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('temperature')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('temperature')}</span>
                 </div>
                 <div
                   className={`text-2xl font-bold ${getStatusColor(sensorData.temperature, 'temperature')}`}
+                  style={{ marginTop: 'auto', marginBottom: '0.5rem' }}
                 >
                   <span dir="ltr">{sensorData.temperature}°C</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
                     className="bg-red-500 h-2 rounded-full transition-all duration-300"
                     style={{ width: `${Math.min((sensorData.temperature / 35) * 100, 100)}%` }}
@@ -250,17 +269,28 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Droplets className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('humidity')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('humidity')}</span>
                 </div>
                 <div
                   className={`text-2xl font-bold ${getStatusColor(sensorData.humidity, 'humidity')}`}
+                  style={{ marginTop: 'auto', marginBottom: '0.5rem' }}
                 >
                   <span dir="ltr">{sensorData.humidity}%</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
                     className="bg-blue-500 h-2 rounded-full transition-all duration-300"
                     style={{ width: `${sensorData.humidity}%` }}
@@ -268,82 +298,143 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Leaf className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('phLevel')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('phLevel')}</span>
                 </div>
-                <div className={`text-2xl font-bold ${getStatusColor(sensorData.ph, 'ph')}`}>
+                <div className={`text-2xl font-bold ${getStatusColor(sensorData.ph, 'ph')}`} style={{ marginTop: 'auto' }}>
                   <span dir="ltr">{sensorData.ph}</span>
                 </div>
-                <div className="text-xs text-gray-500 mt-1" dir="ltr">EC: {sensorData.ec} mS/cm</div>
+                <div className="text-xs text-gray-500" dir="ltr" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>EC: {sensorData.ec} mS/cm</div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Droplets className="w-5 h-5 text-purple-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('waterLevel')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('waterLevel')}</span>
                 </div>
                 <div
                   className={`text-2xl font-bold ${getStatusColor(sensorData.water_level, 'water_level')}`}
+                  style={{ marginTop: 'auto' }}
                 >
                   <span dir="ltr">{sensorData.water_level}%</span>
                 </div>
-                <div className="text-xs text-gray-500 mt-1">
+                <div className="text-xs text-gray-500" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   <span dir="ltr">{t('flow')}: {sensorData.water_flow} L/min</span>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Sun className="w-5 h-5 text-yellow-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('solarGeneration')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('solarGeneration')}</span>
                 </div>
-                <div className="text-2xl font-bold text-yellow-600">
+                <div className="text-2xl font-bold text-yellow-600" style={{ marginTop: 'auto' }}>
                   <span dir="ltr">{sensorData.solar_generation} kWh</span>
                 </div>
-                <div className="text-xs text-gray-500 mt-1 truncate">
+                <div className="text-xs text-gray-500" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   <span dir="ltr">{t('consumption')}: {sensorData.energy_consumption} kWh</span>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-gray-50 to-slate-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Wifi className="w-5 h-5 text-gray-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('systemStatus')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('systemStatus')}</span>
                 </div>
-                <div className="text-2xl font-bold text-green-600">
+                <div className="text-2xl font-bold text-green-600" style={{ marginTop: 'auto' }}>
                   <span dir="ltr">{metrics?.metrics.uptime}%</span>
                 </div>
-                <div className="text-xs text-gray-500 mt-1 truncate">{t('uptime')}</div>
+                <div className="text-xs text-gray-500" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('uptime')}</div>
               </div>
 
-              <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <Leaf className="w-5 h-5 text-emerald-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('nutrients')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('nutrients')}</span>
                 </div>
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs gap-1" dir="ltr">
-                    <span>N: {sensorData.nutrient_levels.nitrogen}ppm</span>
-                    <span>P: {sensorData.nutrient_levels.phosphorus}ppm</span>
+                <div style={{ marginTop: 'auto' }}>
+                  <div className="flex justify-between text-xs gap-1" dir="ltr" style={{ marginBottom: '0.25rem' }}>
+                    <span style={{ whiteSpace: 'nowrap' }}>N: {sensorData.nutrient_levels.nitrogen}ppm</span>
+                    <span style={{ whiteSpace: 'nowrap' }}>P: {sensorData.nutrient_levels.phosphorus}ppm</span>
                   </div>
-                  <div className="text-xs truncate" dir="ltr">
+                  <div className="text-xs" dir="ltr" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     K: {sensorData.nutrient_levels.potassium}ppm
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
+              <div
+                className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg"
+                style={{
+                  padding: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  minHeight: '140px',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div className="flex items-center gap-2">
                   <BarChart3 className="w-5 h-5 text-indigo-600" />
-                  <span className="text-sm font-medium text-gray-700">{t('environment')}</span>
+                  <span className="text-sm font-medium text-gray-700" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('environment')}</span>
                 </div>
-                <div className="space-y-1">
-                  <div className="text-xs truncate" dir="ltr">
+                <div style={{ marginTop: 'auto' }}>
+                  <div className="text-xs" dir="ltr" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '0.25rem' }}>
                     {t('light')}: {(sensorData.light_intensity / 1000).toFixed(1)}k lux
                   </div>
-                  <div className="text-xs truncate" dir="ltr">CO₂: {sensorData.co2_level} ppm</div>
+                  <div className="text-xs" dir="ltr" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>CO₂: {sensorData.co2_level} ppm</div>
                 </div>
               </div>
             </>
@@ -359,37 +450,84 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
             {t('performanceMetrics')} ({t('thisWeek')})
           </h3>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="text-center p-3 bg-blue-50 rounded-lg">
-              <div className="text-2xl font-bold text-blue-600">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '1rem',
+              alignItems: 'stretch'
+            }}
+          >
+            <div
+              className="text-center bg-blue-50 rounded-lg"
+              style={{
+                padding: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '120px',
+                justifyContent: 'space-between',
+                boxSizing: 'border-box'
+              }}
+            >
+              <div className="text-2xl font-bold text-blue-600" style={{ marginBottom: '0.5rem' }}>
                 <span dir="ltr">{metrics.metrics.water_per_kg}L</span>
               </div>
-              <div className="text-sm text-gray-600">{t('waterPerKg')}</div>
-              <div className="text-xs text-green-600 mt-1" dir="ltr">↓ 15% {t('vsLastWeek')}</div>
+              <div className="text-sm text-gray-600" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('waterPerKg')}</div>
+              <div className="text-xs text-green-600" dir="ltr" style={{ marginTop: '0.5rem' }}>↓ 15% {t('vsLastWeek')}</div>
             </div>
 
-            <div className="text-center p-3 bg-yellow-50 rounded-lg">
-              <div className="text-2xl font-bold text-yellow-600">
+            <div
+              className="text-center bg-yellow-50 rounded-lg"
+              style={{
+                padding: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '120px',
+                justifyContent: 'space-between',
+                boxSizing: 'border-box'
+              }}
+            >
+              <div className="text-2xl font-bold text-yellow-600" style={{ marginBottom: '0.5rem' }}>
                 <span dir="ltr">{metrics.metrics.energy_per_kg} kWh</span>
               </div>
-              <div className="text-sm text-gray-600">{t('energyPerKg')}</div>
-              <div className="text-xs text-green-600 mt-1" dir="ltr">↓ 8% {t('vsLastWeek')}</div>
+              <div className="text-sm text-gray-600" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('energyPerKg')}</div>
+              <div className="text-xs text-green-600" dir="ltr" style={{ marginTop: '0.5rem' }}>↓ 8% {t('vsLastWeek')}</div>
             </div>
 
-            <div className="text-center p-3 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600">
+            <div
+              className="text-center bg-green-50 rounded-lg"
+              style={{
+                padding: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '120px',
+                justifyContent: 'space-between',
+                boxSizing: 'border-box'
+              }}
+            >
+              <div className="text-2xl font-bold text-green-600" style={{ marginBottom: '0.5rem' }}>
                 <span dir="ltr">{metrics.metrics.carbon_offset} kg</span>
               </div>
-              <div className="text-sm text-gray-600">{t('carbonOffset')}</div>
-              <div className="text-xs text-green-600 mt-1" dir="ltr">↑ 12% {t('vsLastWeek')}</div>
+              <div className="text-sm text-gray-600" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('carbonOffset')}</div>
+              <div className="text-xs text-green-600" dir="ltr" style={{ marginTop: '0.5rem' }}>↑ 12% {t('vsLastWeek')}</div>
             </div>
 
-            <div className="text-center p-3 bg-purple-50 rounded-lg">
-              <div className="text-2xl font-bold text-purple-600">
+            <div
+              className="text-center bg-purple-50 rounded-lg"
+              style={{
+                padding: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '120px',
+                justifyContent: 'space-between',
+                boxSizing: 'border-box'
+              }}
+            >
+              <div className="text-2xl font-bold text-purple-600" style={{ marginBottom: '0.5rem' }}>
                 <span dir="ltr">{metrics.metrics.food_miles_saved} km</span>
               </div>
-              <div className="text-sm text-gray-600">{t('milesSaved')}</div>
-              <div className="text-xs text-green-600 mt-1" dir="ltr">↑ 5% {t('vsLastWeek')}</div>
+              <div className="text-sm text-gray-600" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t('milesSaved')}</div>
+              <div className="text-xs text-green-600" dir="ltr" style={{ marginTop: '0.5rem' }}>↑ 5% {t('vsLastWeek')}</div>
             </div>
           </div>
         </div>

@@ -528,6 +528,19 @@ main {
   flex-direction: row-reverse;
 }
 
+/* Farm Dashboard Card Heights - Consistent Grid Layout */
+.monitoring-grid {
+  display: grid;
+  align-items: stretch;
+}
+
+/* Responsive card heights for mobile */
+@media (max-width: 768px) {
+  .monitoring-grid > div {
+    min-height: auto !important;
+  }
+}
+
 /* Consistent spacing scale */
 .spacing-xs { gap: 0.25rem; }
 .spacing-sm { gap: 0.5rem; }
