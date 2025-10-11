@@ -1459,12 +1459,25 @@ class MissingKeyTracker {
 
 export const missingKeyTracker = new MissingKeyTracker();
 
+// Get saved language from localStorage, default to Arabic
+const getSavedLanguage = (): string => {
+  try {
+    const savedLang = localStorage.getItem('hasad-language');
+    if (savedLang && (savedLang === 'ar' || savedLang === 'en')) {
+      return savedLang;
+    }
+  } catch (error) {
+    console.warn('Could not access localStorage:', error);
+  }
+  return 'ar'; // Default to Arabic
+};
+
 // Initialize i18next
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'ar', // Default to Arabic
+    lng: getSavedLanguage(),
     fallbackLng: 'en',
     debug: import.meta.env.DEV,
     
@@ -1579,22 +1592,27 @@ export const formatI18nNumber = (number: number, options?: Intl.NumberFormatOpti
 // Language change function with proper direction handling
 export const changeLanguage = (language: 'ar' | 'en') => {
   i18n.changeLanguage(language);
-  
+
   // Update document direction and language
   document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
   document.documentElement.lang = language;
-  
+
   // Store preference
   try {
     localStorage.setItem('hasad-language', language);
   } catch (error) {
     console.warn('Could not save language preference:', error);
   }
-  
+
   // Dispatch custom event for components that need to react to language changes
-  window.dispatchEvent(new CustomEvent('languageChanged', { 
-    detail: { language } 
+  window.dispatchEvent(new CustomEvent('languageChanged', {
+    detail: { language }
   }));
 };
+
+// Set initial document direction on app load
+const initialLanguage = getSavedLanguage();
+document.documentElement.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+document.documentElement.lang = initialLanguage;
 
 export default i18n;

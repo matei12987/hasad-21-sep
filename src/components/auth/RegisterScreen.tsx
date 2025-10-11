@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { LanguageSelector } from './LanguageSelector';
 
 export const RegisterScreen: React.FC = () => {
   const { register } = useAuth();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,9 +55,14 @@ export const RegisterScreen: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 relative"
       style={{ background: 'linear-gradient(135deg, #4a7c59 0%, #6b9b7a 100%)' }}
     >
+      {/* Language Selector */}
+      <div className="absolute top-4 sm:top-6 z-50" style={{ insetInlineEnd: '1rem' }}>
+        <LanguageSelector />
+      </div>
+
       <div className="w-full max-w-4xl mx-auto">
         {/* Logo */}
         <div className="text-center mb-6 lg:mb-12">
@@ -62,13 +70,13 @@ export const RegisterScreen: React.FC = () => {
             <div className="text-3xl lg:text-6xl">🌱</div>
           </div>
           <h1 className="text-3xl lg:text-6xl font-bold text-white mb-1 lg:mb-3">HASAD</h1>
-          <p className="text-sm lg:text-2xl text-green-100">Join the Agricultural Revolution</p>
+          <p className="text-sm lg:text-2xl text-green-100">{t('smartFarmingFingerTips')}</p>
         </div>
 
         {/* Registration Form */}
         <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl">
           <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900">Create Account</h2>
+          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900">{t('createAccount')}</h2>
 
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
@@ -79,7 +87,7 @@ export const RegisterScreen: React.FC = () => {
           <form onSubmit={handleRegister}>
             {/* User Type Selection */}
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Go to:</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('accountType')}:</label>
               <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 <button
                   type="button"
@@ -91,7 +99,7 @@ export const RegisterScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">🛒</div>
-                  <div className="text-base lg:text-xl font-medium">Market</div>
+                  <div className="text-base lg:text-xl font-medium">{t('shopping')}</div>
                 </button>
                 <button
                   type="button"
@@ -103,53 +111,53 @@ export const RegisterScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">👨‍🌾</div>
-                  <div className="text-base lg:text-xl font-medium">Farmer</div>
+                  <div className="text-base lg:text-xl font-medium">{t('farmer')}</div>
                 </button>
               </div>
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Full Name</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('name')}</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Enter your full name"
+                placeholder={t('name')}
                 required
               />
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Email</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('email')}</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Enter your email"
+                placeholder={t('email')}
                 required
               />
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Phone</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('phone')}</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Enter your phone number"
+                placeholder={t('phone')}
                 required
               />
             </div>
 
             <div className="mb-5 lg:mb-8">
               <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">
-                {formData.type === 'farmer' ? 'Farm Location' : 'Location'}
+                {formData.type === 'farmer' ? t('farmLocation') : t('location')}
               </label>
               <input
                 type="text"
@@ -158,48 +166,48 @@ export const RegisterScreen: React.FC = () => {
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder={
-                  formData.type === 'farmer' ? 'Enter your farm location' : 'Enter your location'
+                  formData.type === 'farmer' ? t('farmLocation') : t('location')
                 }
                 required
               />
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Password</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('password')}</label>
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Create a password"
+                placeholder={t('password')}
                 required
               />
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Confirm Password</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('confirmPassword')}</label>
               <input
                 type="password"
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Confirm your password"
+                placeholder={t('confirmPassword')}
                 required
               />
             </div>
 
             <button type="submit" disabled={loading} className="w-full bg-green-600 text-white py-3 lg:py-5 rounded-lg text-base lg:text-lg font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl mb-5 lg:mb-6">
-              {loading ? 'Creating Account...' : 'Create Account'}
+              {loading ? t('loading') : t('createAccount')}
             </button>
           </form>
 
           <div className="text-center">
             <p className="text-sm lg:text-lg text-gray-600">
-              Already have an account?{' '}
+              {t('alreadyHaveAccount')}{' '}
               <Link to="/" className="text-green-600 font-semibold hover:text-green-700 transition-colors hover:underline">
-                Sign In
+                {t('login')}
               </Link>
             </p>
           </div>

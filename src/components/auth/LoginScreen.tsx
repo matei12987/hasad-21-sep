@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { LanguageSelector } from './LanguageSelector';
 
 export const LoginScreen: React.FC = () => {
   const { login } = useAuth();
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState<'farmer' | 'consumer'>('consumer');
@@ -26,8 +29,13 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <div
-      className="min-h-svh w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-[linear-gradient(135deg,#4a7c59_0%,#6b9b7a_100%)]"
+      className="min-h-svh w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-[linear-gradient(135deg,#4a7c59_0%,#6b9b7a_100%)] relative"
     >
+      {/* Language Selector */}
+      <div className="absolute top-4 sm:top-6 z-50" style={{ insetInlineEnd: '1rem' }}>
+        <LanguageSelector />
+      </div>
+
       <div className="w-full max-w-5xl mx-auto">
         {/* Logo */}
         <div className="text-center mb-6 lg:mb-12">
@@ -35,13 +43,13 @@ export const LoginScreen: React.FC = () => {
             <div className="text-3xl lg:text-6xl">🌱</div>
           </div>
           <h1 className="text-3xl lg:text-6xl font-bold text-white mb-1 lg:mb-3">HASAD</h1>
-          <p className="text-sm lg:text-2xl text-green-100">Smart Farming at Your Fingertips</p>
+          <p className="text-sm lg:text-2xl text-green-100">{t('appSlogan')}</p>
         </div>
 
         {/* Login Form */}
         <div className="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl mx-auto max-w-3xl">
           <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900 break-words text-balance">Welcome Back</h2>
+          <h2 className="text-2xl lg:text-5xl font-bold text-center mb-6 lg:mb-8 text-gray-900 break-words text-balance">{t('welcomeBack')}</h2>
 
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
@@ -52,7 +60,7 @@ export const LoginScreen: React.FC = () => {
           <form onSubmit={handleLogin}>
             {/* User Type Selection */}
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Go to:</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('accountType')}:</label>
               <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 <button
                   type="button"
@@ -64,7 +72,7 @@ export const LoginScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">🛒</div>
-                  <div className="text-base lg:text-xl font-medium">Market</div>
+                  <div className="text-base lg:text-xl font-medium">{t('shopping')}</div>
                 </button>
                 <button
                   type="button"
@@ -76,45 +84,45 @@ export const LoginScreen: React.FC = () => {
                   }`}
                 >
                   <div className="text-3xl lg:text-5xl mb-2 lg:mb-3">👨‍🌾</div>
-                  <div className="text-base lg:text-xl font-medium">Farming</div>
+                  <div className="text-base lg:text-xl font-medium">{t('farmer')}</div>
                 </button>
               </div>
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Email</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('email')}</label>
               <input
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Enter your email"
+                placeholder={t('email')}
                 required
               />
             </div>
 
             <div className="mb-5 lg:mb-8">
-              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">Password</label>
+              <label className="block text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-3">{t('password')}</label>
               <input
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 className="w-full px-4 py-3 lg:py-5 text-base lg:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                placeholder="Enter your password"
+                placeholder={t('password')}
                 required
               />
             </div>
 
             <button type="submit" disabled={loading} className="w-full bg-green-600 text-white py-3 lg:py-5 rounded-lg text-base lg:text-lg font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl mb-5 lg:mb-6">
-              {loading ? 'Signing In...' : 'Sign In'}
+              {loading ? t('loading') : t('login')}
             </button>
           </form>
 
           <div className="text-center">
             <p className="text-sm lg:text-lg text-gray-600">
-              Don't have an account?{' '}
+              {t('dontHaveAccount')}{' '}
               <Link to="/register" className="text-green-600 font-semibold hover:text-green-700 transition-colors hover:underline">
-                Sign Up
+                {t('signup')}
               </Link>
             </p>
           </div>
