@@ -18,14 +18,15 @@ import {
 import { Subscription } from '../../types';
 
 export const SubscriptionPlans: React.FC = () => {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { formatCurrency } = useSettings();
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [availablePlans, setAvailablePlans] = useState<any[]>([]);
   const [showCreatePlan, setShowCreatePlan] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
+  const isRTL = i18n.language === 'ar';
 
   // Mock data - replace with actual API calls
   useEffect(() => {
@@ -235,63 +236,63 @@ export const SubscriptionPlans: React.FC = () => {
   }
 
   return (
-    <div className="p-4" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <div className="p-4" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Header */}
       <div className="bg-white rounded-xl shadow-lg" style={{ padding: '1.25rem' }}>
-        <h2 className="text-gray-900" style={{ fontSize: '1.125rem', fontWeight: '700', lineHeight: '1.3', marginBlockEnd: '0.5rem', letterSpacing: '0.02em' }}>{t('subscriptionPlans')}</h2>
-        <p className="text-gray-600" style={{ fontSize: '0.875rem', lineHeight: '1.5', letterSpacing: '0.02em' }}>{t('freshProduceDelivered')}</p>
+        <h2 className="text-gray-900" style={{ fontSize: '1.125rem', fontWeight: '700', lineHeight: isRTL ? '1.8' : '1.3', marginBlockEnd: '0.5rem', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>{t('subscriptionPlans')}</h2>
+        <p className="text-gray-600" style={{ fontSize: '0.875rem', lineHeight: isRTL ? '1.8' : '1.5', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>{t('freshProduceDelivered')}</p>
       </div>
 
       {/* Active Subscriptions */}
       {subscriptions.length > 0 && (
         <div className="bg-white rounded-xl shadow-lg" style={{ padding: '1.25rem' }}>
-          <h3 className="text-gray-900" style={{ fontSize: '1.125rem', fontWeight: '600', lineHeight: '1.3', marginBlockEnd: '1rem', textAlign: 'start', letterSpacing: '0.02em' }}>
+          <h3 className="text-gray-900" style={{ fontSize: '1.125rem', fontWeight: '600', lineHeight: isRTL ? '1.8' : '1.3', marginBlockEnd: '1rem', textAlign: 'start', letterSpacing: isRTL ? '0.03em' : '0.02em' }}>
             {t('myActiveSubscriptions')}
           </h3>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {subscriptions.map(subscription => (
-              <div key={subscription.id} className="border border-gray-200 rounded-lg" style={{ padding: '1.25rem', maxWidth: '100%' }}>
-                <div className="flex items-start justify-between" style={{ marginBlockEnd: '0.75rem' }}>
-                  <div className="flex-1 min-w-0" style={{ paddingInlineEnd: '1rem' }}>
-                    <h4 className="font-semibold text-gray-900 break-words" style={{ fontSize: '1.125rem', lineHeight: '1.3', marginBlockEnd: '0.5rem', textAlign: 'start', letterSpacing: '0.02em' }}>
+              <div key={subscription.id} className="border border-gray-200 rounded-lg" style={{ padding: '1.25rem', maxWidth: '100%' }} dir={isRTL ? 'rtl' : 'ltr'}>
+                <div className="flex items-start" style={{ marginBlockEnd: '0.75rem', justifyContent: 'space-between', flexDirection: isRTL ? 'row-reverse' : 'row', gap: '1rem' }}>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-gray-900 break-words" style={{ fontSize: '1.125rem', lineHeight: isRTL ? '1.8' : '1.3', marginBlockEnd: '0.5rem', textAlign: 'start', letterSpacing: isRTL ? '0.03em' : '0.02em' }}>
                       {subscription.name}
                     </h4>
-                    <p className="text-gray-600 break-words" style={{ fontSize: '0.875rem', lineHeight: '1.5', marginBlockEnd: '0.75rem', letterSpacing: '0.02em' }}>
+                    <p className="text-gray-600 break-words" style={{ fontSize: '0.875rem', lineHeight: isRTL ? '1.8' : '1.5', marginBlockEnd: '0.75rem', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>
                       {subscription.description}
                     </p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.875rem' }} className="text-gray-500">
-                      <span className="flex items-center break-words" style={{ gap: '0.5rem' }}>
-                        <Calendar className="w-4 h-4 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                        <span className="break-words" style={{ lineHeight: '1.5' }}>
+                      <span className="flex items-center break-words" style={{ gap: '0.5rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                        <Calendar className="w-4 h-4" style={{ flexShrink: 0 }} />
+                        <span className="break-words" style={{ lineHeight: isRTL ? '1.8' : '1.5', letterSpacing: isRTL ? '0.03em' : '0.01em' }}>
                           {t(getFrequencyKey(subscription.frequency))}
                         </span>
                       </span>
-                      <span className="flex items-center break-words" style={{ gap: '0.5rem' }}>
-                        <Truck className="w-4 h-4 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                        <span className="break-words" style={{ lineHeight: '1.5' }}>
+                      <span className="flex items-center break-words" style={{ gap: '0.5rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                        <Truck className="w-4 h-4" style={{ flexShrink: 0 }} />
+                        <span className="break-words" style={{ lineHeight: isRTL ? '1.8' : '1.5', letterSpacing: isRTL ? '0.03em' : '0.01em' }}>
                           {t(getDayKey(subscription.delivery_schedule.day_of_week))}
                         </span>
                       </span>
-                      <span className="flex items-center break-words" style={{ gap: '0.5rem' }}>
+                      <span className="flex items-center break-words" style={{ gap: '0.5rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
                         <Clock className="w-4 h-4" style={{ flexShrink: 0 }} />
-                        <span className="break-words" style={{ lineHeight: '1.5' }}>
+                        <span className="break-words" style={{ lineHeight: isRTL ? '1.8' : '1.5', letterSpacing: isRTL ? '0.03em' : '0.01em' }}>
                           {subscription.delivery_schedule.time_slot}
                         </span>
                       </span>
                     </div>
                   </div>
 
-                  <div className="text-end shrink-0" style={{ minWidth: 'fit-content' }}>
-                    <div className="text-green-600" style={{ fontSize: '1.5rem', fontWeight: '700', lineHeight: '1.3', marginBlockEnd: '0.25rem', letterSpacing: '0.01em' }} dir="ltr">
+                  <div className="shrink-0" style={{ minWidth: 'fit-content', display: 'flex', flexDirection: 'column', alignItems: isRTL ? 'flex-start' : 'flex-end' }}>
+                    <div className="text-green-600" style={{ fontSize: '1.5rem', fontWeight: '700', lineHeight: '1.3', marginBlockEnd: '0.25rem', letterSpacing: '0.01em', display: 'flex', gap: '0.25rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
                       {formatCurrencyLocalized(subscription.price)}
                     </div>
-                    <div className="text-gray-500 break-words" style={{ fontSize: '0.75rem', lineHeight: '1.5', marginBlockEnd: '0.5rem', letterSpacing: '0.02em' }}>
+                    <div className="text-gray-500 break-words" style={{ fontSize: '0.75rem', lineHeight: isRTL ? '1.8' : '1.5', marginBlockEnd: '0.5rem', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>
                       {t('per')} {t(getFrequencyKey(subscription.frequency)).toLowerCase()}
                     </div>
                     <span
                       className={`inline-block rounded-full font-medium ${getStatusColor(subscription.status)}`}
-                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', lineHeight: '1.3' }}
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', lineHeight: '1.3', letterSpacing: isRTL ? '0.02em' : '0.01em' }}
                     >
                       {t(subscription.status)}
                     </span>
@@ -300,18 +301,18 @@ export const SubscriptionPlans: React.FC = () => {
 
                 {/* Next Delivery */}
                 <div className="bg-blue-50 rounded-lg" style={{ padding: '0.75rem', marginBlockEnd: '0.75rem' }}>
-                  <div className="flex items-center" style={{ gap: '0.5rem', marginBlockEnd: '0.5rem' }}>
-                    <Truck className="w-4 h-4 text-blue-600 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                    <span className="text-blue-800" style={{ fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.5', letterSpacing: '0.02em' }}>{t('nextDelivery')}</span>
+                  <div className="flex items-center" style={{ gap: '0.5rem', marginBlockEnd: '0.5rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                    <Truck className="w-4 h-4 text-blue-600" style={{ flexShrink: 0 }} />
+                    <span className="text-blue-800" style={{ fontSize: '0.875rem', fontWeight: '500', lineHeight: isRTL ? '1.8' : '1.5', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>{t('nextDelivery')}</span>
                   </div>
-                  <div className="text-blue-700" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>
-                    <p className="break-words text-start" style={{ marginBlockEnd: '0.25rem', letterSpacing: '0.02em' }}>
+                  <div className="text-blue-700" style={{ fontSize: '0.875rem', lineHeight: isRTL ? '1.8' : '1.5' }}>
+                    <p className="break-words" style={{ marginBlockEnd: '0.25rem', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>
                       <span dir="ltr">{formatDateLocalized(subscription.next_delivery)}</span> •{' '}
                       <span dir="ltr">{subscription.delivery_schedule.time_slot}</span>
                     </p>
-                    <p className="flex items-start min-w-0" style={{ gap: '0.5rem' }}>
+                    <p className="flex items-start min-w-0" style={{ gap: '0.5rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
                       <MapPin className="w-3 h-3 flex-shrink-0" style={{ marginBlockStart: '0.125rem' }} />
-                      <span className="break-words" style={{ lineHeight: '1.5', letterSpacing: '0.02em' }}>
+                      <span className="break-words" style={{ lineHeight: isRTL ? '1.8' : '1.5', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>
                         {subscription.delivery_schedule.address}
                       </span>
                     </p>
@@ -320,10 +321,10 @@ export const SubscriptionPlans: React.FC = () => {
 
                 {/* Products Preview */}
                 <div style={{ marginBlockEnd: '0.75rem' }}>
-                  <h5 className="text-gray-700" style={{ fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.5', marginBlockEnd: '0.5rem', letterSpacing: '0.02em' }}>
+                  <h5 className="text-gray-700" style={{ fontSize: '0.875rem', fontWeight: '500', lineHeight: isRTL ? '1.8' : '1.5', marginBlockEnd: '0.5rem', letterSpacing: isRTL ? '0.03em' : '0.02em', textAlign: 'start' }}>
                     {t('includedProducts')}
                   </h5>
-                  <div className="flex" style={{ gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <div className="flex" style={{ gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
                     {subscription.products.slice(0, 4).map((product, index) => (
                       <div
                         key={index}
@@ -345,34 +346,34 @@ export const SubscriptionPlans: React.FC = () => {
 
                 {/* Action Buttons */}
                 <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: '0.75rem' }}>
-                  <button className="flex items-center justify-center bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors" style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem' }}>
-                    <Edit className="w-4 h-4 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                    <span style={{ letterSpacing: '0.02em' }}>{t('modify')}</span>
+                  <button className="flex items-center justify-center bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors" style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                    <Edit className="w-4 h-4" style={{ flexShrink: 0 }} />
+                    <span style={{ letterSpacing: isRTL ? '0.03em' : '0.02em' }}>{t('modify')}</span>
                   </button>
 
                   {subscription.status === 'active' ? (
                     <button
                       onClick={() => handleSubscriptionAction(subscription.id, 'pause')}
                       className="flex items-center justify-center bg-yellow-50 text-yellow-700 rounded-lg hover:bg-yellow-100 transition-colors"
-                      style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem' }}
+                      style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}
                     >
-                      <Pause className="w-4 h-4 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                      <span style={{ letterSpacing: '0.02em' }}>{t('pause')}</span>
+                      <Pause className="w-4 h-4" style={{ flexShrink: 0 }} />
+                      <span style={{ letterSpacing: isRTL ? '0.03em' : '0.02em' }}>{t('pause')}</span>
                     </button>
                   ) : (
                     <button
                       onClick={() => handleSubscriptionAction(subscription.id, 'resume')}
                       className="flex items-center justify-center bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors"
-                      style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem' }}
+                      style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}
                     >
-                      <Play className="w-4 h-4 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                      <span style={{ letterSpacing: '0.02em' }}>{t('resume')}</span>
+                      <Play className="w-4 h-4" style={{ flexShrink: 0 }} />
+                      <span style={{ letterSpacing: isRTL ? '0.03em' : '0.02em' }}>{t('resume')}</span>
                     </button>
                   )}
 
-                  <button className="flex items-center justify-center bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors" style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem' }}>
-                    <Calendar className="w-4 h-4 rtl:scale-x-flip-rtl" style={{ flexShrink: 0 }} />
-                    <span style={{ letterSpacing: '0.02em' }}>{t('schedule')}</span>
+                  <button className="flex items-center justify-center bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors" style={{ padding: '0.75rem 1.5rem', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '500', lineHeight: '1.3', minHeight: '2.75rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                    <Calendar className="w-4 h-4" style={{ flexShrink: 0 }} />
+                    <span style={{ letterSpacing: isRTL ? '0.03em' : '0.02em' }}>{t('schedule')}</span>
                   </button>
                 </div>
               </div>
