@@ -8,9 +8,10 @@ interface ProfileScreenProps {
 }
 
 export const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigateToSettings }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { formatCurrency } = useSettings();
   const { user, logout, updateProfile } = useAuth();
+  const isRTL = i18n.language === 'ar';
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: user?.name || '',
@@ -172,33 +173,128 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({ onNavigateToSettin
 
       {/* Stats (for farmers) */}
       {user?.type === 'farmer' && (
-        <div className="space-y-3 mb-6">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBlockEnd: '1.5rem' }}>
           {/* Revenue Widget - Full Width */}
-          <div className="card">
-            <div className="flex flex-col items-center justify-center py-4">
-              <div className="revenue-number text-orange-600 font-bold mb-3" dir="ltr">
+          <div
+            className="bg-white rounded-xl shadow-sm"
+            style={{
+              padding: '1.5rem',
+              border: '1px solid #E5E7EB',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+              borderRadius: '0.75rem'
+            }}
+            dir={isRTL ? 'rtl' : 'ltr'}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: isRTL ? 'flex-end' : 'center', justifyContent: 'center' }}>
+              <p
+                className="text-gray-600"
+                style={{
+                  fontSize: '0.875rem',
+                  fontWeight: '400',
+                  lineHeight: isRTL ? '1.6' : '1.5',
+                  letterSpacing: isRTL ? '0.03em' : '0.01em',
+                  marginBlockEnd: '0.75rem',
+                  textAlign: isRTL ? 'end' : 'center',
+                  color: '#6B7280'
+                }}
+              >
+                {t('totalEarnings')}
+              </p>
+              <div
+                className="text-orange-600"
+                style={{
+                  fontSize: '2rem',
+                  fontWeight: '700',
+                  lineHeight: '1.2',
+                  letterSpacing: '0.02em',
+                  color: '#FF6B35',
+                  display: 'flex',
+                  gap: '0.25rem',
+                  flexDirection: isRTL ? 'row-reverse' : 'row'
+                }}
+                dir="ltr"
+              >
                 {formatCurrency(8450)}
               </div>
-              <p className="body-sm text-gray-600 text-center">{t('totalEarnings')}</p>
             </div>
           </div>
-          
+
           {/* Other Stats - Two Columns */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="card">
-              <div className="flex flex-col items-center justify-center py-4">
-                <div className="text-3xl font-bold text-green-600 bidi-isolate mb-3" dir="ltr">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div
+              className="bg-white rounded-xl shadow-sm"
+              style={{
+                padding: '1.25rem',
+                border: '1px solid #E5E7EB',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+                borderRadius: '0.75rem'
+              }}
+              dir={isRTL ? 'rtl' : 'ltr'}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <div
+                  style={{
+                    fontSize: '2.25rem',
+                    fontWeight: '700',
+                    color: '#22C55E',
+                    lineHeight: '1',
+                    marginBlockEnd: '0.5rem'
+                  }}
+                  dir="ltr"
+                >
                   24
                 </div>
-                <p className="body-sm text-gray-600 text-center">{t('productsListed')}</p>
+                <p
+                  className="text-gray-600"
+                  style={{
+                    fontSize: '0.875rem',
+                    fontWeight: '400',
+                    textAlign: 'center',
+                    lineHeight: isRTL ? '1.6' : '1.5',
+                    letterSpacing: isRTL ? '0.03em' : '0.01em',
+                    color: '#6B7280'
+                  }}
+                >
+                  {t('productsListed')}
+                </p>
               </div>
             </div>
-            <div className="card">
-              <div className="flex flex-col items-center justify-center py-4">
-                <div className="text-3xl font-bold text-blue-600 bidi-isolate mb-3" dir="ltr">
+            <div
+              className="bg-white rounded-xl shadow-sm"
+              style={{
+                padding: '1.25rem',
+                border: '1px solid #E5E7EB',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+                borderRadius: '0.75rem'
+              }}
+              dir={isRTL ? 'rtl' : 'ltr'}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <div
+                  style={{
+                    fontSize: '2.25rem',
+                    fontWeight: '700',
+                    color: '#3B82F6',
+                    lineHeight: '1',
+                    marginBlockEnd: '0.5rem'
+                  }}
+                  dir="ltr"
+                >
                   156
                 </div>
-                <p className="body-sm text-gray-600 text-center">{t('ordersCompleted')}</p>
+                <p
+                  className="text-gray-600"
+                  style={{
+                    fontSize: '0.875rem',
+                    fontWeight: '400',
+                    textAlign: 'center',
+                    lineHeight: isRTL ? '1.6' : '1.5',
+                    letterSpacing: isRTL ? '0.03em' : '0.01em',
+                    color: '#6B7280'
+                  }}
+                >
+                  {t('ordersCompleted')}
+                </p>
               </div>
             </div>
           </div>
