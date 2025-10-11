@@ -153,58 +153,57 @@ export const FarmDashboard: React.FC<FarmDashboardProps> = ({
       {/* Site Selector */}
       <div className="bg-white rounded-xl shadow-lg p-4">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1rem' }}>
-          {/* Header Row */}
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1, minWidth: 0 }}>
-              {/* Arabic Title */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <MapPin className="w-5 h-5 text-green-600" style={{ flexShrink: 0 }} />
-                <h2
-                  className="font-bold text-gray-900"
-                  style={{
-                    fontSize: i18n.language === 'ar' ? '1.25rem' : '1.125rem',
-                    lineHeight: '1.4',
-                    letterSpacing: i18n.language === 'ar' ? '0.03em' : '0.01em',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}
-                >
-                  {t('farmDashboard')}
-                </h2>
-              </div>
-
-              {/* Farm Name */}
-              <div
-                className="font-semibold text-gray-800"
+          {/* Header with Dropdown */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: '100%' }}>
+            <MapPin className="w-5 h-5 text-green-600" style={{ flexShrink: 0 }} />
+            <h2
+              className="font-bold text-gray-900"
+              style={{
+                fontSize: isRTL ? '1.25rem' : '1.125rem',
+                lineHeight: '1.4',
+                letterSpacing: isRTL ? '0.03em' : '0.01em',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {t('farmDashboard')}
+            </h2>
+            <div style={{ marginInlineStart: 'auto' }}>
+              <select
+                value={selectedSite.id}
+                onChange={e => {
+                  const site = sites.find(s => s.id === e.target.value);
+                  if (site) onSiteChange(site);
+                }}
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 bg-white"
                 style={{
-                  fontSize: '1.125rem',
-                  lineHeight: '1.4',
-                  wordBreak: 'break-word',
-                  hyphens: 'auto',
-                  paddingInlineStart: '1.75rem'
+                  fontSize: '0.875rem',
+                  maxWidth: '200px',
+                  whiteSpace: 'normal'
                 }}
               >
-                {selectedSite.name}
-              </div>
+                {sites.map(site => (
+                  <option key={site.id} value={site.id}>
+                    {site.name}
+                  </option>
+                ))}
+              </select>
             </div>
+          </div>
 
-            {/* Dropdown Selector */}
-            <select
-              value={selectedSite.id}
-              onChange={e => {
-                const site = sites.find(s => s.id === e.target.value);
-                if (site) onSiteChange(site);
-              }}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-              style={{ flexShrink: 0, minWidth: 'fit-content' }}
-            >
-              {sites.map(site => (
-                <option key={site.id} value={site.id}>
-                  {site.name}
-                </option>
-              ))}
-            </select>
+          {/* Farm Name Display */}
+          <div
+            className="font-semibold text-gray-700"
+            style={{
+              fontSize: '1rem',
+              lineHeight: '1.4',
+              paddingInlineStart: '1.75rem',
+              whiteSpace: 'normal',
+              overflowWrap: 'break-word',
+              wordBreak: 'normal',
+              display: 'block'
+            }}
+          >
+            {selectedSite.name}
           </div>
         </div>
 
