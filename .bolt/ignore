@@ -1,2 +1,7 @@
 /home/project/src/components/admin/**
 /home/project/src/components/dev/**
+*
+!src/
+!src/components/
+!src/components/home/
+!src/components/home/HomeScreen.tsx
