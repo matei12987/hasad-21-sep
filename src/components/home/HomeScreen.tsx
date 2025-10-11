@@ -3,9 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { useSettings } from '../../contexts/SettingsContext';
 import { ActivityDetailModal } from './ActivityDetailModal';
-import lettuceImg from '../../assets/hasad_lettuce.webp';
-import tomatoImg from '../../assets/hasad_tomato.webp';
-import cucumberImg from '../../assets/hasad_cucumber.webp';
 
 export const HomeScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -64,7 +61,7 @@ export const HomeScreen: React.FC = () => {
           { icon: '📦', title: t('plans'), subtitle: t('deliveryPlans'), action: 'subscriptions' },
           { icon: '🛍️', title: t('cart'), subtitle: t('yourItems'), action: 'cart' },
           { icon: '📋', title: t('orders'), subtitle: t('orderHistory'), action: 'orders' },
-          { icon: '❓', title: t('helpAndSupport'), subtitle: t('helpAndSupport'), action: 'messages' },
+          { icon: '💬', title: t('messages'), subtitle: t('chatWithFarmers'), action: 'messages' },
           { icon: '📈', title: t('analytics'), subtitle: t('yourInsights'), action: 'analytics' },
         ];
 
@@ -340,34 +337,27 @@ export const HomeScreen: React.FC = () => {
                 name: 'freshLettuce',
                 price: 15.99,
                 unit: t('kg'),
-                image: lettuceImg,
+                image: '🥬',
                 farmer: t('greenValleyFarm'),
               },
               {
                 name: 'organicTomatoes',
                 price: 18.5,
                 unit: t('kg'),
-                image: tomatoImg,
+                image: '🍅',
                 farmer: t('sunnyOrganicFarm'),
               },
               {
-                name: 'cucumber',
+                name: 'sweetCorn',
                 price: 12.99,
                 unit: t('kg'),
-                image: cucumberImg,
+                image: '🌽',
                 farmer: t('harvestHills'),
               },
             ].map((product, index) => (
               <div key={index} className="card card-hover min-w-[140px]">
                 <div className="text-center">
-                  <div className="w-full h-24 mb-2 overflow-hidden rounded-lg">
-                    <img
-                      src={product.image}
-                      alt={t(product.name)}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
+                  <div className="text-4xl mb-2">{product.image}</div>
                   <h3 className="heading-sm mb-1">{t(product.name)}</h3>
                   <p className="body-sm text-green-600 font-medium">
                     {formatCurrency(product.price)}/{product.unit}

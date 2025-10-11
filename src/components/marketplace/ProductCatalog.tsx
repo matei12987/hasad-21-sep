@@ -14,11 +14,6 @@ import {
   Eye,
 } from 'lucide-react';
 import { Product } from '../../types';
-import lettuceImg from '../../assets/hasad_lettuce.webp';
-import tomatoImg from '../../assets/hasad_tomato.webp';
-import basilImg from '../../assets/hasad_basil.webp';
-import strawberryImg from '../../assets/hasad_strawberry.webp';
-import cucumberImg from '../../assets/hasad_cucumber.webp';
 
 export const ProductCatalog: React.FC = () => {
   const { t } = useTranslation();
@@ -41,7 +36,7 @@ export const ProductCatalog: React.FC = () => {
         name: 'freshButterheedLettuce',
         description: 'crispTenderLettuce',
         category: 'leafy_greens',
-        images: [lettuceImg],
+        images: ['🥬'],
         price: 15.99,
         unit: 'kg',
         quantity_available: 25,
@@ -80,7 +75,7 @@ export const ProductCatalog: React.FC = () => {
         name: 'organicCherryTomatoes',
         description: 'sweetJuicyTomatoes',
         category: 'vegetables',
-        images: [tomatoImg],
+        images: ['🍅'],
         price: 28.5,
         unit: 'kg',
         quantity_available: 15,
@@ -111,7 +106,7 @@ export const ProductCatalog: React.FC = () => {
         name: 'freshBasil',
         description: 'aromaticBasilLeaves',
         category: 'herbs',
-        images: [basilImg],
+        images: ['🌿'],
         price: 12.0,
         unit: 'bunch',
         quantity_available: 30,
@@ -142,7 +137,7 @@ export const ProductCatalog: React.FC = () => {
         name: 'premiumStrawberries',
         description: 'sweetJuicyStrawberries',
         category: 'fruits',
-        images: [strawberryImg],
+        images: ['🍓'],
         price: 45.0,
         unit: 'kg',
         quantity_available: 8,
@@ -297,13 +292,8 @@ export const ProductCatalog: React.FC = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               {/* Product Image */}
-              <div className="relative h-48 bg-white overflow-hidden">
-                <img
-                  src={product.images[0]}
-                  alt={t(product.name, { defaultValue: humanize(product.name) })}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+              <div className="relative h-48 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+                <span className="text-6xl">{product.images[0]}</span>
 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-col gap-1">
