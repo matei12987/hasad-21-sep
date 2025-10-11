@@ -26,10 +26,6 @@ import { SupportScreen } from './components/support/SupportScreen';
 import { SubscriptionPlans } from './components/marketplace/SubscriptionPlans';
 import { SettingsProvider } from './contexts/SettingsContext';
 import { useAuth } from './contexts/AuthContext';
-import { I18nDevTools } from './components/dev/I18nDevTools';
-import { MissingKeyOverlay } from './components/dev/MissingKeyOverlay';
-import { RTLTestSuite } from './components/dev/RTLTestSuite';
-import { I18nStorybook } from './components/dev/I18nStorybook';
 import { FarmSite } from './types';
 import './App.css';
 
@@ -209,15 +205,6 @@ function App() {
           <CartProvider>
             <Router>
               <AppContent />
-              {/* Development Tools - Only in DEV mode */}
-              {import.meta.env.DEV && (
-                <>
-                  <I18nDevTools show={true} />
-                  <MissingKeyOverlay />
-                  <RTLTestSuite />
-                  <I18nStorybook />
-                </>
-              )}
             </Router>
           </CartProvider>
         </AuthProvider>
